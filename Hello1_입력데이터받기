@@ -2,7 +2,7 @@ package ch01.sec09;
 
 import java.util.Scanner;
 
-public class Hello1_입력데이터받기 {
+public class Hello1_입력데이터받기2 {
 
 	public static void main(String[] args) {
 		
@@ -18,6 +18,8 @@ public class Hello1_입력데이터받기 {
 		
 		int result = x + y;
 		System.out.println(" x + y : " + result);
+		
+		scanner.close();
 
 	}
 
