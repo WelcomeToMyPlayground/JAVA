@@ -1,0 +1,46 @@
+package ch01.sec09;
+
+public class Hello1_출력연습2 {
+
+	public static void main(String[] args) {
+		
+		//서식 지정자 안에 %숫자d로 작성하면 출력 시 해당 위치에 
+		//숫자값 만큼의 공간 확보를 하고 값을 출력함
+
+		System.out.printf("%d",123);   // 정수
+		System.out.println("\n");
+		System.out.printf("%5d" ,123);   // 5자리 정수.  왼쪽 빈자리 공백
+		System.out.println("\n");
+		System.out.printf("%05d", 123);   //5자리 정수. 왼쪽 빈자리를 0으로 채움
+		System.out.println("\n");
+		System.out.printf("%-5d", 123);   // 5자리 정수. 오른쪽 빈자리 공백
+		System.out.println("\n");
+		
+		System.out.printf("%s", "abc");  // 문자열
+		System.out.println("\n");
+		System.out.printf("%7s", "abc");  // 7자리 문자열. 왼쪽 빈자리 공백
+		System.out.println("\n");
+		System.out.printf("%-7s", "like");  // 7자리 문자열. 오른쪽 빈자리 공백
+		System.out.println("\n");
+		System.out.println("A\tB\tC");  //탭
+		
+		// 실수
+		System.out.printf("%10.2f", 123.45);   // 정수 7자리+소수점1+소수2자리 = 10 , 왼쪽 빈자리 공백
+		System.out.println("\n");
+		System.out.printf("%-10.2f", 123.45);  // 오른쪽 빈자리 공백
+		System.out.println("\n");
+		System.out.printf("%010.2f", 123.45);  // 정수 7자리+소수점1+소수2자리 = 10, 왼쪽 빈자리 0으로 채움
+		System.out.println("\n");
+		
+		System.out.printf("%10.2f", 123.4567 );
+		System.out.println("\n");
+		System.out.printf("%12.2f", 123.4567 );
+		System.out.println("\n");
+		System.out.printf("%.2f", 123.4567 );  // 123.46
+		
+		// 실수값을 출력할 때 서식 지정자 안에 %.숫자f로 작성하면
+		// 해당 숫자까지의 소수점 자리를 출력함
+		
+	}
+
+}
