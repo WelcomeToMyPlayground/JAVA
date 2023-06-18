@@ -1,0 +1,31 @@
+package ch01.sec09;
+
+public class Hello1_출력연습 {
+
+	public static void main(String[] args) {
+		
+		System.out.print("김자바\n");
+		System.out.print("김자바");   // 개행 x
+		System.out.printf("이름: %s", "김자바\n");
+		System.out.printf("나이: %d\n", 24);
+		System.out.printf("이름: %s", "김자바");  // 개행x
+		
+		System.out.println("24");
+		System.out.println("25");
+		System.out.print("26");   // 개행x
+		System.out.print("27\n");
+		System.out.println("28");
+		
+//		System.out.println("이름: %s", "김자바");   println 불가능 -> printf 사용
+//		System.out.println("나이: %d", 24);       println 불가능 -> printf 사용
+		
+		
+		System.out.printf("이름: %s, 나이: %d\n", "김자바", 22); 
+		System.out.printf("이름: %1$s, 나이: %2$d", "김자바", 22); // 개행x
+		
+//		형식 문자열에 포함될 값이 두 개 이상일 경우에는 값의 순번을 포함시켜야 함
+//		1$는 첫 번째 값을, 2$는 두 번째 값을 뜻함
+
+	}
+
+}
