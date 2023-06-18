@@ -1,0 +1,12 @@
+package ch01.sec09;
+
+public class Hello1_키보드입력데이터저장 {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+
+	}
+
+}
