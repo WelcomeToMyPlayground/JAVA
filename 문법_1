@@ -1,15 +1,18 @@
-charAt(숫자)
+1. charAt(숫자)
 : string 타입으로 받은 문자열을 char 타입으로 한 글자만 받게 해주는 함수 
 	문자열에서 해당 숫자 위치에 해당하는 문자열을 char 타입으로 변환
  
-toString(데이터)
+2. toString()
 : 데이터를 String 타입으로 변환
 
-lnteger.parseInt          문자열 -> 숫자(int)
-int a = lnteger.parseInt ()
+3. String.valueOf()     
+ : 타입값 => 문자
 
-String.valueOf(타입값)     타입값 => 문자
+4. lnteger.parseInt          문자열 -> 숫자(int)
+   int a = lnteger.parseInt ()
 
+
+------------------------------------------------------
 [타입과 형변환]
 byte -> short , char -> int -> long -> float -> double
 ----------------정수-----------------  ------실수------
