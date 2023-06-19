@@ -9,3 +9,53 @@ lnteger.parseInt          문자열 -> 숫자(int)
 int a = lnteger.parseInt ()
 
 String.valueOf(타입값)     타입값 => 문자
+
+[타입과 형변환]
+byte -> short , char -> int -> long -> float -> double
+----------------정수-----------------  ------실수------
+
+1. 자동 타입 변환 (묵시적)
+: 표현 범위가 좁은 데이터 타입에서 넓은 데이터 타입으로의 변환이 허용
+  (작은 자료형에서 큰 자료형으로 이동할 때)
+
+2. 강제 타입 변환 (Casting)(명시적)
+: 손실이 일어나더라도 데이터 타입을 바꿔주는 역할
+  (큰 자료형에서 작은 자료형으로 이동할 때 오류가 발생하는데, 오류가 발생하지 않도록 강제 형변환을 해주는 것)
+--------------------------------------------------------
+
+1) int/int 형태의 나눗셈 연산은 소수점 이하가 버려짐. 
+   int/int -> int
+
+2)  double d = 5 / 2;  // 대입 연산자 우측이 먼저 계산
+    double d = 2;      // 정수와 정수의 연산은 정수, 따라서 2가 됨
+    double d = 2.0;    // 2가 자동변환 되어 2.0이 됨
+
+3) int -> double 
+   소수점 이하가 추가된다. (자동 변환)
+
+4) char 타입이 int 타입으로 변환되면 유니코드 값이 저장된다
+ 
+5) 단, 음수가 저장될 수 있는 byte, int 등의 타입은 char 타입으로 자동 타입 변환할 수 없다.
+
+   byte byteVal = 65;
+   char charVal = byteVal;           // 컴파일 에러
+   char charData = (char) byteVal;   // 강제 타입 변환은 가능하다
+
+6) 	int intVal = 'A';
+		System.out.println(intVal); // 65 출력
+		char charVal = (char)intVal;  // 65에 해당되는 유니코드 문자가 저장됨
+		System.out.println(charVal); // 저장된 문자 A 출력
+
+7) 실수 타입(float, double)은 정수 타입으로 자동 타입 변환되지 않기 때문에 강제 타입 변환을 사용해야 함
+	 소수점 이하 부분은 버려지고 (값 손실)
+   정수 부분만 저장된다.
+
+	 double doubleVal = 3.14;
+   int intVal = (int)doubleVal;    // intVal에 정수 부분 3만 저장
+
+8) 연산 시 자동 타입 변환 정리
+  - 정수와 실수 연산 = 실수형 타입 (double)
+  - 정수와 정수 연산 = int 타입
+  - 실수와 실수 연산 = double 타입
+  - 큰 타입과 작은 연산 = 큰 타입
+	
