@@ -1,0 +1,394 @@
+package sec03.exam07;
+
+public class 확인문제2 {
+
+	public static void main(String[] args) {
+		
+		long var1 = 2L;
+		float var2 =  1.8f;
+		double var3 =  2.5;
+		String var4 = "3.9";
+		
+		int result1 = (int) var1 + (int) var2 + (int) var3 + (int) Double.parseDouble(var4) ; // 8
+		int result2 = (int) (var1 + var2 + var3) + (int) Double.parseDouble(var4) ; // 9
+		int result3 = (int) (var1 + var2 + var3 + Double.parseDouble(var4)) ; // 10
+		
+		System.out.println(result1);
+		System.out.println(result2);
+		System.out.println(result3);
+	
+		byte value = Byte.parseByte("10");
+		
+
+ }
+}
+
+//
+
+package sec03.exam07;
+
+import java.util.Scanner;
+
+public class 문자를기본타입으로변환 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("첫 번째 숫자 입력");
+		String a = s.next();
+		int c = Integer.parseInt(a);
+		
+		System.out.println("두 번째 숫자 입력");
+		String b = s.next();
+		int d = Integer.parseInt(b);
+		
+		int sum = c + d;
+		
+		System.out.println("두 수의 합은 " + sum +"입니다.");
+	
+		}
+}
+
+//
+
+package sec03.exam07;
+
+public class 확인문제 {
+
+	public static void main(String[] args) {
+		
+//		byte byteValue = 10;
+//		char charValue = 'A';
+//		
+//		int intValue = 10;
+//		char charValue = 'A';
+//		double doubleValue = 5.7;
+//		String strValue = "A";
+//		
+//		double var = (double) intValue;
+//		byte var2 = (byte) intValue;
+//		int var3 = (int) doubleValue;
+//		//char var4 = (char) strValue;
+//		char var4 = strValue.charAt(0);
+//		
+//		System.out.println(var);
+//		System.out.println(var2);
+//		System.out.println(var3);
+//		System.out.println(var4);
+//		
+//		byte byteValue = 10;
+//		float floatValue = 2.5f;
+//		double doubleValue2 = 2.5;
+//		
+//	//	byte result = byteValue + byteValue;
+//		int result = byteValue + byteValue;
+//		
+		
+		char c1 = 'a';
+		int c2 = c1 + 1;
+		System.out.println((char) c2);
+		
+		int x = 5;
+		int y = 2;
+		int result3 = x / y;
+		System.out.println(result3);  // 2가 출력됨
+		
+		double result4 = (double) x / y ;
+		System.out.println(result4);  // 2.5가 출력됨
+		
+		double var1 = 3.5;
+		double var2 = 2.7;
+		int result = (int) var1+ (int) var2; // int로 강제변환하면 소수점 잘림
+		System.out.println(result);
+		
+
+ }
+}
+
+//
+
+package sec03.exam02;
+
+public class Casting1 {
+
+	public static void main(String[] args) {
+//		int intValue = 200;
+//		byte byteValue= (byte) intValue;
+//		
+//		System.out.println(byteValue);
+		
+//		int intValue = 44032;
+//		char charValue = (char) intValue;
+//		System.out.println(charValue);
+//		
+//		long longValue = 500;
+//		intValue = (int) longValue;
+//		System.out.println(longValue);
+//		
+		double doubleValue = 3.14;
+		int intValue = (int) doubleValue;
+		System.out.println(intValue);
+		
+
+	}
+
+}
+
+//
+
+package sec03.exam02;
+
+public class dd2 {
+
+	public static void main(String[] args) {
+		
+		byte result1 = 10 + 20;
+		System.out.println(result1);
+		
+		byte x = 10;
+		byte y = 20;
+		// byte result2 = x + y; 컴파일 에러 발생
+		int result2 = x + y;
+		
+		System.out.println(result2);
+	}
+
+}
+
+//
+
+package sec03.exam02;
+
+import java.util.Scanner;
+
+public class 나누기곱하기 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("첫 번째 숫자 입력");
+		int a = scan.nextInt();
+
+		System.out.println("두 번째 숫자 입력");
+		int b = scan.nextInt();
+		
+
+		System.out.println("연산기호 입력");
+		String c = scan.next();
+		char d = c.charAt(0);
+		
+		
+		if (d == '*') {
+			int e = a * b;
+			System.out.println("입력하신 연산의 결과는 " + e +"입니다.");		
+		}
+		else {
+			double f = (double) a/b;
+			System.out.println("입력하신 연산의 결과는 " + f +"입니다.");
+		}
+		
+		
+		
+
+	}
+
+}
+
+//
+package sec03.exam02;
+
+import java.util.Scanner;
+
+public class 실수타입변환예제 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner (System.in);
+		
+		System.out.println("중간고사 성적을 입력하세요.(50점 만점)");
+		Double a = s.nextDouble();
+		
+		System.out.println("기말고사 성적을 입력하세요.(50점 만점)");
+		Double b = s.nextDouble();
+		
+		Double c = a + b;
+	
+		System.out.println("최종 성적은 " + c +"입니다.");
+		
+		
+		
+		
+
+	}
+
+}
+
+//
+
+package sec03.exam02;
+
+import java.util.Scanner;
+
+public class 실수타입변환예제2 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner (System.in);
+		
+		System.out.println("첫 번째 숫자 입력");
+		int a = s.nextInt();
+		
+		System.out.println("두 번째 숫자 입력");
+		int b = s.nextInt();
+		
+		double c = (double) a/ (double) b;
+	
+		System.out.println("입력하신 두 수의 나누기 결과는 " + c + "입니다.");
+		
+		
+		
+		
+
+	}
+
+}
+
+//
+
+package sec03.exam02;
+
+public class 실수타입변환예제3 {
+
+	public static void main(String[] args) {
+		
+		char a = '가';
+		char b = 1;
+		
+		int c = a + b;
+		
+		System.out.println(a);  // 유니코드 출력      
+		System.out.println(c);  // 유니코드      
+		System.out.println((char)c); //
+		
+	}
+
+}
+
+//
+
+package sec03.exam01;
+
+public class PromotionExample {
+
+	public static void main(String[] args) {
+		
+		byte byteValue = 10;
+		int intValue = byteValue;
+		System.out.println("intValue: "+ intValue);
+		
+		char charValue = '사';
+		intValue = charValue;
+		System.out.println("사의 유니코드 : " + intValue);
+		
+		//int가 long으로 자동 형변환
+		intValue = 50;
+		long longValue = intValue;
+		System.out.println("longValue : " + longValue);
+		
+		//long이 float으로 자동 형변환
+		longValue = 100;
+		float floatValue = longValue;
+		System.out.println("floatValue :" + floatValue);
+		
+		
+	}
+
+}
+
+//
+
+package sec03.exam01;
+
+import java.util.Scanner;
+
+public class PromotionExample2 {
+
+	public static void main(String[] args) {
+	
+		Scanner s = new Scanner(System.in);
+				
+		System.out.println("출신학교를 입력하세요");
+		String a = s.next();
+		char b = a.charAt(2);
+	
+		System.out.println("현재 몇학년 인가요?");
+		int c = s.nextInt();
+		
+		if (b=='중') {
+			System.out.println("당신은 중학교 " + c +"학년입니다.");
+		}
+		else {
+			System.out.println("당신은 고등학교 " + c +"학년입니다.");
+		}
+		
+	
+	}
+
+}
+
+
+//
+
+package sec03.exam01;
+
+import java.util.Scanner;
+
+public class PromotionExample3 {
+
+	public static void main(String[] args) {
+	
+		Scanner s = new Scanner(System.in);
+				
+		System.out.println("한 글자를 입력하세요");
+		String a = s.next();
+		
+		char b = a.charAt(0); // 첫 글자  0
+		// charAt(숫자)란 string 타입으로 받은 문자열을 char 타입으로 한 글자만 받게 해주는 함수 
+		// 문자열에서 해당 숫자 위치에 해당하는 문자열을 char 타입으로 변환
+		
+		int c = b; //char 값을  int로 변환하면 해당 유니코드 값이 출력됨
+		
+		// toString(데이터) 데이터를 String 타입으로 변환
+		
+		System.out.println("입력하신 '" + a +"'의 유니코드 값은" + c +"입니다.");
+		
+		
+	}
+
+}
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+    
+    
+    
