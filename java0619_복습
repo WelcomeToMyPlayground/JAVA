@@ -323,7 +323,7 @@ public class PromotionExample2 {
 		String a = s.next();
 		char b = a.charAt(2);
 	
-		System.out.println("현재 몇학년 인가요?");
+		System.out.println("현재 몇 학년인가요?");
 		int c = s.nextInt();
 		
 		if (b=='중') {
