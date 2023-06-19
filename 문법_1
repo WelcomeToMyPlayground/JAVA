@@ -6,4 +6,6 @@ toString(데이터)
 : 데이터를 String 타입으로 변환
 
 lnteger.parseInt          문자열 -> 숫자(int)
+int a = lnteger.parseInt ()
+
 String.valueOf(타입값)     타입값 => 문자
