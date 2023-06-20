@@ -5,8 +5,8 @@
 2. toString()
 : 데이터를 String 타입으로 변환
 
-3. String.valueOf()     
- : 타입값 => 문자열
+3. String.valueOf(값)     
+ :  숫자를 문자열로 변환
 
 4. lnteger.parseInt          문자열 -> 숫자(int)
    int a = lnteger.parseInt ()
