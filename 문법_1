@@ -61,4 +61,14 @@ byte -> short , char -> int -> long -> float -> double
   - 정수와 정수 연산 = int 타입
   - 실수와 실수 연산 = double 타입
   - 큰 타입과 작은 연산 = 큰 타입
+
+9) 키코드 
+  - 키보드로 입력된 내용을 변수에 저장
+  - 입력은 read()를 통해서 변수에 저장한다
+  - 예외처리 입력 
+  
+  int KeyCode = System.in.read();
+  
+  10) 숫자 같다 ==
+     문자열 같은거 .equals("x")
 	
