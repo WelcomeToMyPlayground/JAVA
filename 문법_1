@@ -6,7 +6,7 @@
 : 데이터를 String 타입으로 변환
 
 3. String.valueOf()     
- : 타입값 => 문자
+ : 타입값 => 문자열
 
 4. lnteger.parseInt          문자열 -> 숫자(int)
    int a = lnteger.parseInt ()
