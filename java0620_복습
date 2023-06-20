@@ -107,6 +107,53 @@ public class 문제0620수정1 {
 
 // 5
 
+package sec04;
+
+import java.util.Scanner;
+
+public class ScannerExample2 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		while (true) {													// while 시작
+			System.out.println("도어락 비밀번호를 입력하세요");
+			String a = scanner.nextLine();
+			
+			if(a.equals("1234")) {										// if
+				System.out.println("환영합니다.");
+				break;
+			}															// if 끝					   
+			System.out.println("비밀번호가 틀립니다.");
+		}																// while 끝 
+	}
+}
+
+// 6
+package sec04;
+
+import java.util.Scanner;
+
+public class ScannerExample {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String inputData;
+		
+		while(true) {
+			inputData = scanner.nextLine();
+			System.out.println("입력된 문자열 : \"" + inputData + "\"");
+			if(inputData.equals("q")) {
+				break;
+			}
+		}
+		System.out.println("종료");
+	}
+
+}
+
+// 7
+
 
 
 
