@@ -3,10 +3,12 @@
 	문자열에서 해당 숫자 위치에 해당하는 문자열을 char 타입으로 변환
  
 2. toString()
-: 데이터를 String 타입으로 변환
+:  숫자를 String (문자열)로 변환
+
+- Integer.toString();
 
 3. String.valueOf(값)     
- :  숫자를 문자열로 변환
+ :  숫자를 String (문자열)로 변환
 
 4. lnteger.parseInt          문자열 -> 숫자(int)
    int a = lnteger.parseInt ()
