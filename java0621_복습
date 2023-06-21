@@ -221,6 +221,64 @@ public class 확인문제3 {
 
 	}
 
+------------------------------------------------------------------------------
+// 9 연산자 우선순위
+
+1) 증감연산자 ++ ㅡㅡ
+
+package sec01;
+
+import java.util.Scanner;
+
+public class 연산우선순위 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("숫자 하나를 입력하세요");
+		int num1 = s.nextInt();
+		System.out.println("연산자 (+,-)를 입력하세요");
+		String oper = s.next();
+		
+		if (oper.equals("+")) {
+				System.out.println(++num1); 			
+		} 
+		else if (oper.equals("-")){
+			System.out.println(--num1);
+		}
+	}
+
+}
+
+2) else if 부가설명 버리고 else로만 해도 상관없음 (경우가 2개라서)
+
+package sec01;
+
+import java.util.Scanner;
+
+public class 연산우선순위 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("숫자 하나를 입력하세요");
+		int num1 = s.nextInt();
+		System.out.println("연산자 (+,-)를 입력하세요");
+		String oper = s.next();
+		
+		if (oper.equals("+")) {
+				System.out.println(++num1); 			
+		} 
+		else {
+			System.out.println(--num1);
+		}
+	}
+
+}
+
+// 10
+
+
 
 
 
