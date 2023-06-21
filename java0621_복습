@@ -82,7 +82,7 @@ public class 확인문제2_덧셈결과 {
 
 }
 
-// 4  - 이것도 가능 
+// 4  - 이것도 가능 (if랑 else if)
 
 package test;
 
@@ -109,7 +109,7 @@ public class 확인문제3 {
 
 }
 
-// 5 - result 먼저 선언 후, 변수 활용
+// 5 - result 먼저 선언 후, 변수 활용 (if랑 else if)
 
 package test;
 
@@ -138,7 +138,35 @@ public class 확인문제3 {
 
 }
 
-// 6
+// 6 - if랑 else
 
+package test;
+
+import java.util.Scanner;
+
+public class 확인문제3 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("첫 번째 수 입력");
+		int a = s.nextInt();
+		System.out.println("두 번째 수 입력");
+		int b = s.nextInt();
+		int result;
+		
+		if (a > b) {
+			result = a - b;
+			System.out.println("뺄셈 결과 : " +  result);
+		}
+		else {
+			result = a + b;
+			System.out.println("덧셈 결과 : " + result);
+		}
+	}
+
+}
+
+// 7
 
 
