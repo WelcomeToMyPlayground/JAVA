@@ -103,7 +103,7 @@ public class 확인문제3 {
 			System.out.println("뺄셈 결과 : " +  result);
 		}
 		else if (a < b) {
-			System.out.println("덧셈 결과: " + (a + b));
+			System.out.println("덧셈 결과 : " + (a + b));
 		}
 	}
 
@@ -132,7 +132,7 @@ public class 확인문제3 {
 		}
 		else if (a < b) {
 			result = a + b;
-			System.out.println("덧셈 결과: " + result);
+			System.out.println("덧셈 결과 : " + result);
 		}
 	}
 
