@@ -1,1 +1,339 @@
 // 1
+package sec02;
+
+public class IncreaseDecreaseOperatorExample {
+
+	public static void main(String[] args) {
+		
+		int x = 10;
+		int y = 10;
+		int z;
+		
+		System.out.println("--------------");
+		x++; // 11
+		System.out.println(x); // 11
+		++x; // 12
+		System.out.println("x=" + x); // 12
+		
+		System.out.println("--------------");
+		y--; // 9
+		--y; // 8
+		System.out.println("y=" + y); // 8
+		System.out.println("--------------");
+		z = x++; // 12
+		System.out.println("z=" + z); // 12
+		System.out.println("x=" + x); // 13
+		
+		System.out.println("--------------");
+		z = ++x;
+		System.out.println("z=" + z); // 14
+		System.out.println("x=" + x); // 14
+		
+		// x = 14; y=8; z=14
+		System.out.println("--------------");
+		z = ++x + y++;          // 15 + 8
+		System.out.println("z=" + z); //  23
+		System.out.println("x=" + x); // 15
+		System.out.println("y=" + y); //  9
+		
+	}
+
+}
+
+// 2
+package sec02;
+
+import java.util.Scanner;
+
+public class 계산기 {
+
+	public static void main(String[] args) {
+
+		// 숫자 2개 입력
+		// 연산자 입력 ( +,-,*,/ )
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("첫 번째 숫자 입력");
+		int a = s.nextInt();
+		System.out.println("두 번째 숫자 입력");
+		int b = s.nextInt();
+		System.out.println("연산자입력");
+		String c = s.next();
+		
+		int temp;
+	
+		if (b > a) {
+			temp = a ;
+			a = b;
+			b = temp;
+		}
+			
+		if (c.equals("+")) {
+			System.out.println("값: " + a + b);
+		}
+		if (c.equals("-")) {
+			System.out.println("값: " + (a - b));
+		}
+		if (c.equals("*")) {
+			System.out.println("값: " + a * b);
+		}
+		if (c.equals("/")) {
+			System.out.println("값: " + (double) a / b);
+		}
+
+	}
+}
+
+// 3
+package sec02;
+
+public class 논리부정연산1 {
+
+	public static void main(String[] args) {
+		boolean play = true;
+		System.out.println(play); // true
+		
+		play = !play;             //
+		System.out.println(play); // false
+		
+		play = !play;             // false + false
+		System.out.println(play); // true
+	}
+
+}
+
+// 4
+package sec02;
+
+public class 연산자1 {
+
+	public static void main(String[] args) {
+		int x = 100;
+		int result1 = +x;
+		int result2 = -x;
+		
+		System.out.println(result1); // 100
+		System.out.println(result2); // -100
+		
+		// byte result3 = -b;    byte에 - 붙이면 int로 변경됨
+		byte b =100;
+		int result4 = -b;
+		System.out.println(result4); // -100
+
+	}
+
+}
+
+// 5
+package sec02;
+
+import java.util.Scanner;
+
+public class 연습1 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("x의 초기값을 입력해 주세요");
+		int a = s.nextInt();
+		System.out.println("y의 초기값을 입력해 주세요");
+		int b = s.nextInt();
+		System.out.println("증감 기호를 입력해 주세요(+,-)");
+		String c = s.next();
+		
+		if (c.equals("+")) {
+			System.out.println(++a);
+		} else {
+			System.out.println(--b);
+		}
+		
+	}
+
+}
+// 6
+package sec02;
+
+import java.util.Scanner;
+
+public class 연습2 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("x의 초기값을 입력해 주세요");
+		int a = s.nextInt();
+		System.out.println("y의 초기값을 입력해 주세요");
+		int b = s.nextInt();
+		System.out.println("증감 기호를 입력해 주세요(+,-)");
+		String c = s.next();
+
+		if (c.equals("+")) {
+			++a;
+		} else {
+			--b;
+		}
+
+		System.out.println("x값: " + a + ", y값: " + b);
+	}
+
+}
+
+// 7
+package sec02;
+
+import java.util.Scanner;
+
+public class 좌석수구하기_1 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		// 예) 학생수 33명, 한줄 5명 
+		System.out.println("학생 수 입력");
+		int a = s.nextInt();            // 33
+		System.out.println("한 줄에 몇 명씩 앉나요?");
+		int b = s.nextInt();            // 5
+		            
+		int c = a / b;
+		int d = b - (a%b); 
+			
+		if (a%b == 0) {
+			System.out.println("총"+ c +"줄이고 남은 좌석 수는 " + a%b +"입니다.");
+		} 
+		else if (d != 0) {
+			System.out.println("총"+ (c+1) +"줄이고 남은 좌석 수는 " + d +"입니다.");
+		
+		}
+		
+	}
+}
+// 8
+package sec02;
+
+import java.util.Scanner;
+
+public class 좌석수구하기_2 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		// 예) 학생수 33명, 한줄 5명 
+		System.out.println("학생 수 입력");
+		int student = s.nextInt();            // 33
+		System.out.println("한 줄에 몇 명씩 앉나요?");
+		int seat = s.nextInt();            // 5
+		            
+		double line1 = (double) student / (double) seat;
+		int line2 = student / seat;
+		
+		if (line1 - line2 >0) {
+			line1++;
+		}
+		int resultline = (int) line1;
+		int remainseat = resultline * seat - student;
+		System.out.printf("총 %d줄이고 남은 좌석수는 %d입니다." , resultline, remainseat);
+		
+	}
+}
+// 9 
+package sec02;
+
+import java.util.Scanner;
+
+public class 좌석수구하기_3 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		// 예) 학생수 33명, 한줄 5명 
+		
+		System.out.println("학생 수 입력");
+		int student = s.nextInt();            // 33
+		System.out.println("한 줄에 몇 명씩 앉나요?");
+		int seat = s.nextInt();            // 5
+		            
+	  // 다시 해보기
+ }
+}
+
+// 10
+package sec02;
+
+public class 확인문제1 {
+
+	public static void main(String[] args) {
+	
+		//원본(불가능)
+		
+//		byte b = 5;
+//		b = -b;
+//		int result 10/b;
+//		System.out.println(result);
+//		
+
+		//1 - 변수를 변경
+		byte b = 5;
+		int a = -b;
+		int result = 10/a;
+		System.out.println(result);
+		
+		//2 - byte를 int로 변경
+		int e = 5;
+		e = - e;
+		int result1 = 10/e;
+		System.out.println(result);
+	}
+
+}
+
+// 11
+package sec02;
+
+import java.util.Scanner;
+
+public class 확인문제2 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("근로시간 입력");
+		int time = s.nextInt();
+		int a = time * 9620;
+		
+		double result = (time >= 10) ? (a*1.2) : a ;
+		System.out.println("총 임금: " + (int) result +"원");
+
+	}
+
+}
+
+// 12
+package sec02;
+
+import java.util.Scanner;
+
+public class 확인문제4 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("학생 수 입력");
+		int a = s.nextInt();
+		System.out.println("연필 개수 입력");
+		int b = s.nextInt();
+
+		int c = b / a;
+		int d = b % a;
+
+		System.out.printf("학생 한 명당 %d개씩 연필을 가져가고 %d개가 남아요", c, d);
+//		System.out.println("학생 한 명당 "+ c +"개씩 연필을 가져가고 "+ d +"개가 남아요");
+
+	}
+}
+
+
