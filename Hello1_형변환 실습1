@@ -6,7 +6,7 @@ public class 형변환1 {
 
 	public static void main(String[] args) {
 //		float a = 100.0;   불가능
-			float a =100.0f;
+	  	float a =100.0f;
 			
 //		int b = 100.0f;  불가능
 			
@@ -35,6 +35,7 @@ public class 형변환1 {
 
 
 // 2
+
 package ch01.sec11;
 
 public class 형변환2 {
@@ -89,5 +90,6 @@ public class 형변환2 {
 	}
 
 }
+
 // 3
 
