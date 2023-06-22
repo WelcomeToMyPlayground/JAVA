@@ -177,8 +177,10 @@ public class 연습2 {
 	}
 
 }
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+# 좌석 수 구하기 #
 
-// 7
+// 7  - 별로임
 package sec02;
 
 import java.util.Scanner;
@@ -208,7 +210,41 @@ public class 좌석수구하기_1 {
 		
 	}
 }
-// 8
+
+
+// 7-1
+package ch01.sec11;
+
+import java.util.Scanner;
+
+public class 좌석수구하기_1 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		// 예) 학생수 33명, 한줄 5명 
+		System.out.println("학생 수 입력");
+		int a = s.nextInt();            // 33
+		System.out.println("한 줄에 몇 명씩 앉나요?");
+		int b = s.nextInt();            // 5
+		            
+		int c = a / b;
+		int d = b - (a%b); 
+			
+		if (a%b == 0) {
+			System.out.println("총 "+ c +"줄이고 남은 좌석 수는 " + a%b +"입니다.");
+		} 
+		else if (a%b != 0) {
+			System.out.println("총 "+ (c+1) +"줄이고 남은 좌석 수는 " + d +"입니다.");
+		
+		}
+		
+	}
+}
+
+
+// 8 
 package sec02;
 
 import java.util.Scanner;
@@ -237,27 +273,42 @@ public class 좌석수구하기_2 {
 		
 	}
 }
-// 9 
-package sec02;
+
+
+// 9 - 삼항연산자
+package ch01.sec11;
 
 import java.util.Scanner;
 
-public class 좌석수구하기_3 {
+public class 증감연산연습 {
 
 	public static void main(String[] args) {
-
 		Scanner s = new Scanner(System.in);
-
-		// 예) 학생수 33명, 한줄 5명 
 		
 		System.out.println("학생 수 입력");
-		int student = s.nextInt();            // 33
+		int student = s.nextInt();
 		System.out.println("한 줄에 몇 명씩 앉나요?");
-		int seat = s.nextInt();            // 5
-		            
-	  // 다시 해보기
- }
+		int line = s.nextInt();
+		
+		// 학생 수, 한 줄 n명 입력
+		//45 , 5 => 몫 9, 나머지 0 => 총 9줄, 남은좌석 0
+		//33, 5 => 몫 6, 나머지 3 => 총 7줄, 남은좌석 2
+		//46, 5   => 몫 9, 나머지 1 => 총 10줄 , 남은좌석 4 
+		//35, 4 => 몫 8, 나머지 3 => 총 9줄, 남은 좌석 1
+
+		int a = student / line; 
+		int b = student % line;
+		int c = line - (student % line);
+
+		int result = (b > 0) ? a+1 : a;
+		int result2 = (b == 0)  ? c=0 : c ;
+		
+		System.out.println("총 "+result+"줄이고, 남은 좌석 수는 "+ result2 +"입니다.");
+		
+	}
 }
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 // 10
 package sec02;
