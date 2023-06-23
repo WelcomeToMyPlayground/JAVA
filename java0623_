@@ -1,1 +1,288 @@
 // 1
+package sec02;
+
+public class a1 {
+
+	public static void main(String[] args) {
+		int v2 = 1;
+		double v3 = 1.0;
+		
+		System.out.println(v2==v3); // true - int 1이 double 형태의 1.0으로 바뀐다
+		
+		double v4 = 0.1;
+		float v5 = 0.1f;
+		System.out.println(v4 == v5);   // false - double이랑 float이라서
+		System.out.println((float) v4 == v5);   // true
+
+	}
+
+}
+
+// 2
+package sec02;
+
+import java.util.Scanner;
+
+public class a2_시험성적_성적입력 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		// 1번
+		// 비밀번호는 영어 소문자와 숫자의 조합 예) a5, a7
+		// 사용자가 비밀번호를 제대로 입력했으면 환영합니다 출력
+		// 사용자가 비밀번호를 틀리게 입력했으면
+		// 비밀번호는 영어 소문자와 숫자의 조합입니다. 안내문 출력
+
+		System.out.println("당신의 이름은?");
+		String name = s.next();
+		System.out.println("접속 비밀번호를 입력해 주세요");
+		String pass = s.next(); // a5 입력
+
+		char a = pass.charAt(0); // 영어 소문자 'a'
+		char b = pass.charAt(1); // 숫자 5 입력
+		
+		// charAt() 는 String으로 저장된 문자열 중에서 한 글자만 선택하여 char 타입으로 변환해줌
+
+		if ((a >= 97) && (a <= 122) && (b >= 48) && (b <= 57)) {
+			System.out.println(name + "님 환영합니다.");
+		} 
+		else {
+			System.out.println("비밀번호는 영어 소문자와 숫자의 조합입니다.");
+		}
+		
+		
+	
+		// 2번
+		// 중간고사가 80점 이상이거나 기말고사가 80점 이상이면 "통과"
+		// 아니면 "탈락"
+		
+		System.out.println("중간고사 성적 입력");
+		int mid = s.nextInt();
+		System.out.println("기말고사 성적 입력");
+		int last = s.nextInt();
+		
+		if (mid>=80 || last>=80 ) {
+			System.out.println("통과");
+		} else {
+			System.out.println("탈락");
+		}
+		
+	}
+
+}
+
+// 3
+package sec02;
+
+import java.util.Scanner;
+
+public class a3 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+
+		// 예) 숫자 5, 연산자 - 입력했으면 복합연산자를 이용하여
+		// 100에서 5를 뺀 num1의 결과를 출력 예) num -=5;
+
+		int num1 = 100;
+		System.out.println("숫자를 입력하세요");
+		int a = s.nextInt();
+		System.out.println("연산자를 입력하세요");
+		String b = s.next();
+
+		
+		if (b.equals("+")) {
+			num1 += a;
+		}
+		if (b.equals("-")) {
+			num1 -= a;
+		}
+		if (b.equals("*")) {
+			num1 *= a;
+		}
+		if (b.equals("/")) {
+			num1 /= a;
+		}
+		if (b.equals("%")) {
+			num1 %= a;
+		}
+		System.out.println("결과값은 : " + num1);
+	}
+
+}
+
+// 4
+package sec02;
+
+import java.util.Scanner;
+
+public class a3_삼항연산자로 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		// 예) 숫자 5, 연산자 - 입력했으면 복합연산자를 이용하여
+		// 100에서 5를 뺀 num1의 결과를 출력 예) num -=5;
+
+		int num1 = 100;
+		System.out.println("숫자를 입력하세요");
+		int a = s.nextInt();
+		System.out.println("연산자를 입력하세요");
+		String b = s.next();
+
+		int result = (b.equals("+") ? num1 += a : b.equals("-") ? num1 -= a : b.equals("*") ? num1 *= a : b.equals("/") ? num1 /= a : b.equals("%") ? num1 %= a : a);
+
+		System.out.println("결과값은 : " + result);
+	}
+
+}
+
+// 5
+package sec02;
+
+import java.util.Scanner;
+
+public class a4 {
+
+	public static void main(String[] args) {
+//		int score = 85;
+//		char grade = (score>90) ? 'A':  ((score>80) ? 'B':'C');
+//		System.out.println(score + "점은" + grade + "등급입니다.");
+//		
+		// 사용자가 점수를 입력합니다.
+		// 점수가 90 이상 "수"
+		// 80점 이상 "우"
+		// 나머지 "미"
+		
+		Scanner s = new Scanner (System.in);
+		System.out.println("점수를 입력하세요");
+		int a = s.nextInt();
+		
+		char b = (a>=90) ? '수' : ((a>=80) ? '우' : '미');
+		System.out.println("성적은 '" + b + "' 입니다."); 
+		
+	}
+
+}
+
+// 6
+package sec02;
+
+import java.util.Scanner;
+
+public class a5_확인문제9번_129p {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("첫 번째 수 입력");
+		String a = s.next(); // next() 사용
+		double b = Double.parseDouble(a); // 문자열을 실수로 바꿈
+		
+		System.out.println("두 번째 수 입력");
+		String c = s.next();
+		double d = Double.parseDouble(c);   
+
+		double e = b / d; // 첫 번째 수에 두 번째 수를 나눔
+
+		if (d == 0 || d == 0.0) {
+			System.out.println("결과: 무한대");     // d가 double이라서 d == 0.0만 입력해도 ㄱㅊ음. 어차피 0 입력해도 0.0으로 인식         
+		} else {
+			
+			System.out.println("결과: " + e);
+		}
+
+	}
+}
+
+// 7
+package sec02;
+
+import java.util.Scanner;
+
+public class a5_확인문제9번_129p_강사님정답 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		System.out.print("첫 번째 수: ");
+		double num1 = Double.parseDouble(s.next()); 
+		
+		System.out.print("두 번째 수: ");
+		double num2 = Double.parseDouble(s.next());   
+
+		System.out.println("------------------------");
+
+		if (num2 != 0.0) {
+			System.out.println("결과: " + (num1/num2));  
+		} else {
+			System.out.println("결과: 무한대");
+		}
+
+	}
+}
+
+// 8 - 아직 안 풀었음
+package sec02;
+
+import java.util.Scanner;
+
+public class a5_확인문제9번_129p_삼항연산자로 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("첫 번째 수 입력");
+		String a = s.next(); // next() 사용
+		double b = Double.parseDouble(a); // 문자열을 실수로 바꿈
+		
+		System.out.println("두 번째 수 입력");
+		String c = s.next();
+		double d = Double.parseDouble(c);   
+
+		double e = b / d; // 첫 번째 수에 두 번째 수를 나눔
+		
+		
+
+	}
+}
+
+// 9 
+package sec02;
+
+import java.util.Scanner;
+
+public class a6_확인문제11번_130p {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		System.out.print("아이디: ");
+		String name = s.nextLine();
+		System.out.print("패스워드: ");
+		String pass = s.nextLine();
+		int password = Integer.parseInt(pass);
+
+		if (name.equals("java")) {
+			if (password == 12345) {
+				System.out.println("로그인 성공");
+			} else {
+				System.out.println("로그인 실패: 패스워드가 틀림");
+			}
+		} 
+		else {
+			System.out.println("로그인 실패: 아이디가 존재하지 않음");
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
