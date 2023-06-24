@@ -1,4 +1,4 @@
-// 1
+// 1  - 131p
 package ch01.sec11;
 
 public class _131p {
@@ -8,29 +8,34 @@ public class _131p {
 		// 12번
 		int x = 10;
 		int y = 5;
-		System.out.println((x>7) && (y<=5));     	   //true
-		System.out.println((x%3 ==2) || (y%2 !=1)); // false
+		System.out.println((x>7) && (y<=5));     	  //true
+		System.out.println((x%3 ==2) || (y%2 !=1));	 // false
 	
 		// 13번 - 변형
 		int  value = 0;		
-		value += 10;		                // 0 + 10 = 10
-		System.out.println(value); // 10
-		value -= 5;						// 10 - 5 = 5
-		System.out.println(value); // 5
-		value *= 10;		               //  5 * 10 = 50
-		System.out.println(value); // 50
-		value /= 10;                   // 50 / 10 = 5
-		System.out.println(value); // 5
+
+		value += 10;		    // 0 + 10 = 10
+		System.out.println(value);  // 10
+		value -= 5;		    // 10 - 5 = 5
+		System.out.println(value);  // 5
+		value *= 10;		    //  5 * 10 = 50
+		System.out.println(value);  // 50
+		value /= 10;                // 50 / 10 = 5
+		System.out.println(value);  // 5
 		
 		//14번 - 삼항연산자 , 논리부정연산자
-		논리부정연산자 !는 피연산자의 의미를 반전시킨다
-		true를 false로, false를 true로 바꾼다
+		//논리부정연산자 !는 피연산자의 의미를 반전시킨다
+		//true를 false로, false를 true로 바꾼다
 
 		int score = 85;
 		String result = (!(score>90)) ? "가" : "나" ;  // !false = true
 		System.out.println(result);    // true값 "가"  출력
 		
-		// 126p 삼항연산자 연습
+	}
+
+}
+
+// 2 - 126p 삼항연산자 연습
 		
 		int score2 = 85;
 		char grade = (score2>90) ? 'A' : 'B';   
@@ -46,9 +51,8 @@ public class _131p {
 		
 		System.out.println(grade3); // D 출력
 		System.out.println(score4 + "점은 "+ grade +"등급입니다.");  
-		
-	}
 
-}
 
-// 2
+// 3
+
+
