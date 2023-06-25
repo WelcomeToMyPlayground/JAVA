@@ -113,7 +113,7 @@ public class a3 {
 
 }
 
-// 4
+// 4  - 맞게 풀었는지 모르겠음!
 package sec02;
 
 import java.util.Scanner;
@@ -297,7 +297,7 @@ public class a7_퀴즈 {
 
 }
 **********************************************************************
-// １０
+// 10
 
 package sec02;
 
@@ -317,7 +317,7 @@ public class a8_누적합계 {
 		// a에 5 입력, b에 8 입력
 		while (true) {
 			if (a <= b) {
-				result += a; // result = result + a;
+				result += a;            
 				a++;
 			} else {
 				break;
