@@ -26,3 +26,37 @@
 
 
 //4 - 문자열 자르기, substring 
+
+	        //문제:  def만 출력하기
+		String str = "abc123def";
+		System.out.println(str.substring(6,9));                            //def
+		System.out.println(str.length());   		                   // 9
+		System.out.println(str.substring(str.length()-3, str.length()));   //def
+
+
+
+//5 -  substring - 답만 체크함
+
+public class 연습5 {
+
+		public static void main(String[] args) {
+
+		String str = "abcdefg12345";
+		System.out.println("substring(5) : " + str.substring(5));           // fg12345
+		System.out.println("substring(0,1) : " + str.substring(0,1));	    // a
+		System.out.println("substring(1,2) : " + str.substring(1,2));       // b
+		System.out.println("substring(2,3) : " + str.substring(2,3));       // c
+		System.out.println("substring(2,10) : " + str.substring(2,10));     // cdefg123
+		
+	}
+}
+
+//6 - substring, 문자열 길이 
+
+		String example = "동해물과 백두산이 마르고 닳도록";
+		System.out.println("example.length ->" + example.length());  //17
+		
+		System.out.println(example.substring(5));    // 백두산이 마르고 닳도록
+		System.out.println(example.substring(5,8));  // 백두산
+
+		
