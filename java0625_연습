@@ -1,6 +1,6 @@
 //1 - 변수값 교환 
 
-    int x = 3;
+    int x = 3; 
 		int y = 5;
 		System.out.println("x: " + x + ", y: " + y);    // x: 3, y: 5
 
