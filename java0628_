@@ -186,7 +186,7 @@ public class d1_연습5_별찍기2 {
 
 		// 별찍기 반대로 
 		
-		for (int i = 1; i <= 5; i++) {                // 5번 반복
+		for (int i = 1; i <= 5; i++) {                            // 5번 반복
 			for (int j = 5; j >= i; j--) {			  // 
 				System.out.print("*");
 
@@ -213,8 +213,8 @@ public class d1_연습5_별찍기3 {
 		int i = 0;
 		int j = 0;
 		
-		for(i =1; i <= 5; i++) {             // 5번 반복
-			for(j=1; j <= 10;j++ ) {         // * 을 10번 출력 - print 썼으니 개행x
+		for(i =1; i <= 5; i++) {                   // 5번 반복
+			for(j=1; j <= 10;j++ ) {           // * 을 10번 출력 - print 썼으니 개행x
 				System.out.print("*");
 			}
 			System.out.println();
@@ -223,7 +223,7 @@ public class d1_연습5_별찍기3 {
 	}
 }
 
-//10
+//10 - 아직 안함
 package sec02;
 
 import java.util.Scanner;
@@ -233,21 +233,18 @@ public class d1_연습5_별찍기4 {
 	public static void main(String[] args) {
 
 // 출력 예
-//		   *
+//         *
 //        ***
 //       *****
 //      *******
 //     *********
 
-		int i = 0;
-		int j = 0;
 
-		for (i = 0; i <= 5; i++) {
-			// for (j=)
-		}
 
-	}
-}
+
+
+
+
 
 //11
 package sec02;
@@ -255,7 +252,9 @@ package sec02;
 public class d1_while예제1 {
 
 	public static void main(String[] args) {
-		
+
+		//1부터 10까지 출력
+
 		int i = 1;
 		
 		while (i<=10) {
@@ -274,20 +273,21 @@ public class d1_while예제2 {
 
 	public static void main(String[] args) {
 
-		// 구구단 5단 출력 while 사용
+		// 구구단 6단 출력 while 사용
 
-		int num1 = 6;
+		int num = 6;
 		int i = 1;
-		
+
 		while (i <= 9) {
-			System.out.println(num1 + " * " + i + " = " + (num1*1));
+			System.out.println(num + " x " + i + " = " + (num * i));
 			i++;
 		}
-		
 
 	}
 
 }
+
+
 //13
 package sec02;
 
@@ -350,15 +350,3 @@ public class d1_while예제4 {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
