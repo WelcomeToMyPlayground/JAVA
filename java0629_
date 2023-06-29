@@ -1,0 +1,463 @@
+//1
+package sec02;
+
+public class e1_160p_확인문제2 {
+
+	public static void main(String[] args) {
+		
+		// 1~100까지 3의 배수의 합계
+		int sum = 0;
+		for (int i = 1; i <= 100; i++) {
+			if (i % 3 == 0) {
+				sum += i;
+			}
+		}
+		System.out.println("1 ~ 100까지 3의 배수의 총합: " + sum);
+
+	}
+
+}
+
+//2
+package sec02;
+
+public class e1_160p_확인문제3 {
+
+	public static void main(String[] args) {
+
+		int sum = 0;
+		for (int i = 1; i <= 100; i++) {
+			if (i % 3 != 0) {
+				continue; // 만약 3의 배수가 아니라면 생략
+			}
+			sum += i;
+		}
+		System.out.println("1 ~ 100까지 3의 배수의 총합: " + sum);
+
+	}
+
+}
+
+//3
+package sec02;
+
+public class e1_161p_5_6번2 {
+
+	public static void main(String[] args) {
+		
+		for (int i = 1; i <= 4; i++) {
+
+			for (int j = 4; j >= 1; j--) {
+				if (i < j) {
+					System.out.print(" "); // 공백 출력
+				} else {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+
+		}
+
+	}
+}
+
+//4
+package sec02;
+
+import java.util.Scanner;
+
+public class e1_161p7번 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("광주은행에 방문하신 것을 환영합니다.");
+		System.out.println("예금은 1번, 출금은 2번, 잔고 확인은 3번, 종료는 4번입니다.");
+		System.out.print("선택 > ");
+		int choice = s.nextInt();
+
+		// 잔고 balance, 예금 deposit, 출금 withdraw
+		int balance = 50000; // 통장 잔고 0으로 설정
+		int deposit, withdraw;
+
+		switch (choice) {
+		case 1:
+			System.out.println("입금 금액이 얼마입니까?");
+			deposit = s.nextInt();
+			balance += deposit;
+			System.out.println("입금되었습니다. 현재 잔액은 : " + balance +" 원 입니다.");
+			break;
+		case 2:
+			System.out.println("출금 금액이 얼마입니까?");
+			withdraw = s.nextInt();
+			if (balance < withdraw) {
+				System.out.println("고객님 잔액이 부족합니다.");
+			} else {
+				balance -= withdraw;
+				System.out.println("출금 후 잔액은: " + balance + " 원 입니다");
+			}
+			break;
+		case 3:
+			System.out.println("고객님의 통장 잔액은 : " + balance + " 원 입니다.");
+			break;
+		default:
+			System.out.println("안녕히 가십시오.");
+
+		}
+
+	}
+
+}
+
+//5
+package sec02;
+
+import java.util.Scanner;
+
+public class e1_161p7번2 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("광주은행에 방문하신 것을 환영합니다.");
+
+		// 잔고 balance, 예금 deposit, 출금 withdraw
+		int balance = 50000;     // 통장 잔고 설정
+		int deposit, withdraw;
+		boolean run = true;
+
+		while (run) {
+
+			System.out.println("예금은 1번, 출금은 2번, 잔고 확인은 3번, 종료는 4번입니다.");
+			System.out.print("선택 > ");
+			int choice = s.nextInt();
+
+			switch (choice) {
+			case 1:
+				System.out.println("입금 금액이 얼마입니까?");
+				deposit = s.nextInt();
+				balance += deposit;
+				System.out.println("입금되었습니다. 현재 잔액은 : " + balance + " 원 입니다.");
+				break;
+			case 2:
+				System.out.println("출금 금액이 얼마입니까?");
+				withdraw = s.nextInt();
+				if (balance < withdraw) {
+					System.out.println("고객님 잔액이 부족합니다.");
+				} else {
+					balance -= withdraw;
+					System.out.println("출금 후 잔액은: " + balance + " 원 입니다");
+				}
+				break;
+			case 3:
+				System.out.println("고객님의 통장 잔액은 : " + balance + " 원 입니다.");
+				break;
+			default:
+				System.out.println("안녕히 가십시오.");
+				run = false;
+			}
+		}
+	}
+
+}
+
+//6
+package sec02;
+
+public class e1_161p확인문제_주사위 {
+
+	public static void main(String[] args) {
+
+		while (true) {
+
+			int num = (int) (Math.random() * 6) + 1;
+			int num2 = (int) (Math.random() * 6) + 1;
+			System.out.printf("주사위 숫자: (%d,%d)", num, num2);
+
+			int sum = num + num2;
+			System.out.println("");
+			System.out.println("눈의 합: " + sum);
+
+			if (sum == 5) {
+				break;
+
+			}
+
+		}
+		System.out.println("프로그램 종료");
+	}
+
+}
+
+//7
+package sec02;
+
+public class e1_161p확인문제_주사위continue {
+
+	public static void main(String[] args) {
+		
+		// continue 사용하기
+		
+		while (true) {
+
+			int num = (int) (Math.random() * 6) + 1;
+			int num2 = (int) (Math.random() * 6) + 1;
+			System.out.printf("주사위 숫자: (%d,%d)", num, num2);
+
+			int sum = num + num2;
+			System.out.println("");
+			System.out.println("눈의 합: " + sum);
+
+			if (sum != 5) {
+				continue;
+			} else {
+				break;
+			}
+			
+		}
+		System.out.println("프로그램 종료");
+	}
+
+}
+
+//8
+package sec02;
+
+public class e1_continue예제1 {
+
+	public static void main(String[] args) {
+		
+		for(int i=1; i<=10; i++) {    // 1부터 10까지 10번 반복
+			if(i%2 != 0) {     // i가 홀수면 생략
+				continue;
+			}
+			System.out.println(i);
+		}
+
+	}
+
+}
+
+//9
+package sec02;
+
+public class e1_continue예제2 {
+
+	public static void main(String[] args) {
+		
+		
+		//3의 배수이면서 5의 배수인 것을 출력
+		for(int i=1; i <=100; i++) {
+			
+			if (i % 15 != 0) {
+				continue;
+			}
+			System.out.println(i);
+		}
+	}
+
+}
+
+//10
+package sec02;
+
+public class e1_continue예제3 {
+
+	public static void main(String[] args) {
+		
+		// 3의 배수이면서 5의 배수를 출력
+		for(int i=1; i <=100; i++) {		// 1부터 100까지 100번 반복
+			
+			if (i % 3 != 0 || i%5 != 0) {   // 3의 배수가 아니거나 5의 배수가 아니면 생략
+				continue;
+			}								// => 3의 배수이거나 5의 배수만 ㅇ
+			System.out.println(i);
+		}
+	}
+
+}
+
+//11
+package sec02;
+
+public class e1_별찍기1 {
+
+	public static void main(String[] args) {
+
+		for (int i = 1; i <= 4; i++) { // 전체 반복 횟수는 4회 (총 4줄 출력)
+			for (int j = 1; j <= i; j++) {
+				System.out.print("*"); // *를 옆으로 출력
+			}
+			System.out.println(); // 줄 변경
+
+		}
+	}
+}
+
+//12
+package sec02;
+
+public class e1_별찍기_공백포함_반대로 {
+
+	public static void main(String[] args) {
+
+        // 반대로
+		for (int k = 1; k <= 4; k++) {             // 1,2,3,4 (총 4줄)
+
+			for (int i = 3; i >= k; i--) {         // 
+				System.out.print(" ");             // 공백 출력
+			}
+			for (int j = 1; j <= k; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+
+		}
+
+	}
+}
+
+//13
+package sec02;
+
+public class e1_브레이크예제1 {
+
+	public static void main(String[] args) {
+		
+		do {
+			int num = (int) (Math.random()*6)+1;
+			System.out.println(num);
+			
+			if (num==6) {
+				break;
+			}
+		} while (false);
+		
+	System.out.println("프로그램 종료");
+	}
+}
+
+//14
+package sec02;
+
+public class e1_브레이크예제2 {
+
+	public static void main(String[] args) {
+		
+		while(true) {
+			int num = (int) (Math.random()*6)+1;
+			// 1부터 6까지 랜덤 숫자 추출
+			System.out.println(num);
+			
+			if (num==6) {
+				break;
+			}
+		}
+		System.out.println("프로그램 종료");
+	}
+
+}
+
+//15
+package sec02;
+
+public class e1_브레이크예제3 {
+
+	public static void main(String[] args) {
+		
+		// 158p 바깥쪽 반복문까지 종료
+		a: for (char upper = 'A'; upper <= 'Z'; upper++) {
+			for (char lower = 'a'; lower <= 'z'; lower++) {
+				System.out.println(upper + "-" + lower);
+				if (lower == 'g') {
+					break a; 
+				}
+			}
+		}
+		System.out.println("프로그램 실행 종료");
+	}
+
+}
+
+//16
+package sec02;
+
+public class e1_연습 {
+
+	public static void main(String[] args) {
+
+		for (int i=0; i< 5; i++) {
+			
+			// 스페이스
+			for(int j=0; j<i ; j++) {
+				System.out.print("");
+			}
+			// 별
+			for(int j=5; j>1 ; i-- )
+			System.out.println("*");
+		}
+	System.out.println();
+	}
+
+}
+
+//17
+package sec02;
+
+import java.util.Scanner;
+
+public class e1_퀴즈2 {
+
+	public static void main(String[] args) {
+
+		System.out.println("광주 시립도서관 방문을 환영합니다.");
+		Scanner s = new Scanner(System.in);
+		int sum = 0; // 대출
+		int sum2 = 0; // 반납
+		boolean run = true;
+
+		while (run) {
+			System.out.println("작업코드와 개수를 입력해주세요.");
+			String code = s.next(); // 예) A2, B3, CO
+
+			char a = code.charAt(0); // A는 대출, B는 반납, C는 종료
+			String b = code.substring(1); // 개수
+			int c = Integer.parseInt(b);
+
+			switch (a) {
+			case 'A':
+				System.out.println("책 " + c + "권 대출");
+				sum += c;
+				break;
+			case 'B':
+				System.out.println("책 " + c + "권 반납");
+				sum2 += c;
+				break;
+			default:
+				System.out.println("종료");
+				run = false;
+
+			}
+		}
+
+		System.out.println("총 대출 권수: " + sum);
+		System.out.println("총 반납 권수: " + sum2);
+	}
+
+}
+
+//18
+
+
+
+
+
+
+
+
+
+
+
+
+
