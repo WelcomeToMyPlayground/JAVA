@@ -1,0 +1,514 @@
+//1
+package sec01;
+
+public class Car {
+
+	int speed;
+	String company;
+	int price;
+	String color;
+	
+	public Car() {
+		
+}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+}
+
+//2
+package sec01;
+
+import java.util.Scanner;
+
+public class lotto2 {
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+		int lotto[] = new int[6];
+		int num = 0; // 번호 초기값 세팅
+		boolean[] check = new boolean[46];
+		// 번호가 같은지 판단하는 배열 생성
+		// 1~45가 필요하지만 배열은 0부터 시작하므로 총 46개 생성
+
+		for (int i = 0; i < lotto.length; i++) {
+			num = (int) (Math.random() * 45) + 1;
+
+			// boolean은 초기값 false로 되어 있음
+			// 랜덤 숫자 자리를 뽑은 적이 없으면 해당 숫자 추출
+			// 해당 자리 값을 true로 변경
+
+			if (check[num] == false) {
+				lotto[i] = num;
+				check[num] = true;
+			} else {
+				i--; // 똑같은 숫자가 나올 시 원래 i가 1씩 증가하지만, 1을 M으로써 다시 돌린다.
+			}
+		}
+
+		for (int j = 0; j < lotto.length; j++) {
+			System.out.print(lotto[j] + " ");
+
+		}
+	}
+
+}
+
+//3
+package sec02;
+//230p
+public class Member {
+	
+	// 필드(정보) 선언
+	String name;
+	String id;
+	String password;
+	
+	int age;
+
+}
+
+//4
+package sec02;
+//231p
+public class Member예제 {
+
+	public static void main(String[] args) {
+		
+		Member member = new Member();
+		
+		member.name = "최하얀";
+		member.age = 23;
+		
+		System.out.println(member.name);
+		System.out.println(member.age);
+
+	}
+
+}
+//5
+package sec02;
+
+public class Student {  
+	
+	int age = 30;            //나이
+	String name = "홍길동";	    //이름
+	String dept = "경영학과";		// 학과
+	String gender = "남";		// 성별
+
+}
+
+//6
+package sec02;
+
+public class 필드초기값 {
+	
+	byte byteField;
+	short shortField;
+	int intField;
+	long longField;
+	
+	boolean booleanField;
+	char charField;
+	
+	float floatField;
+	double doubleField;
+	
+	int [] arrField;
+	String referenceField;
+	
+}
+
+//7
+package sec02;
+
+public class 필드초기값예제1 {
+
+	public static void main(String[] args) {
+		
+		필드초기값 fiv = new 필드초기값();
+		
+		System.out.println("byteField: " + fiv.byteField);
+		System.out.println("shortField: " + fiv.shortField);
+		System.out.println("intField: " + fiv.intField);
+		System.out.println("longField: " + fiv.longField);
+		System.out.println("booleanField: " + fiv.booleanField);
+		System.out.println("charField: " + fiv.charField);
+		System.out.println("floatField: " + fiv.floatField);
+		System.out.println("doubleField: " + fiv.doubleField);
+		System.out.println("arrField: " + fiv.arrField);
+		System.out.println("referenceField: " + fiv.referenceField);
+	}
+
+}
+//8
+package sec02;
+
+public class 학생예제1 {
+
+	public static void main(String[] args) {
+		
+		// 인스턴스 생성
+		Student s = new Student();
+		
+		System.out.println(s.name);
+		
+		
+		s.dept = "법학과";   // 변경
+		System.out.println(s.dept);
+		
+
+	}
+
+}
+
+//9
+package sec03;
+
+public class Board {
+	String title;
+	String content;
+	String writer;
+	String date;
+	int hitcount;
+
+	Board(String title, String content) {	
+		this(title, content, "로그인한 회원아이디", "현재 컴퓨터 날짜", 0);	
+	}
+
+	Board(String title, String content, String writer) {
+		this(title, content, writer, "현재 컴퓨터 날짜", 0);	
+			}
+
+	Board(String title, String content, String writer, String date) {
+		this(title, content, writer, date, 0);	
+		
+	}
+
+	public Board(String title, String content, String writer, String date, int hitcount) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.date = date;
+		this.hitcount = hitcount;
+	}
+
+		
+}
+//10
+package sec03;
+
+public class Car_원본 {
+
+		String company;
+		String model;
+		String color;
+		int maxspeed;
+		int speed;
+		
+		public Car_원본() {
+			//기본 생성자
+		}
+		
+		public Car_원본(String model, int speed) {    
+			// 모델명과 속도가 들어가는 생성자
+			// 생성자가 하나 있으므로 컴퓨터가 자동으로 생성자를 만들지는 않음
+		}
+}
+//11
+package sec03;
+
+public class Car {
+
+		String company;
+		String model;
+		String color;
+		int maxspeed;
+		int speed;
+		
+		public Car() {
+			//기본 생성자
+		}
+		
+		public Car(String model, int speed) {  
+			// this는 객체 자신을 참조하는 키워드
+			// 필드와 매개변수 이름이 완전히 동일할 경우
+			// this.필드로 표현
+			
+			this.model = model;
+			this.speed = speed;    
+		}
+		
+		public Car(String model, String color, int maxspeed) {  // 
+			
+			this.model = model;
+			this.color = color;
+			this.maxspeed = maxspeed;
+		}
+}
+//12
+package sec03;
+
+public class Car1 {
+
+		String company;
+		String model;
+		String color;
+		int maxspeed;
+		int speed;
+		
+		public Car1() {
+			//기본 생성자
+		}
+		
+		public Car1(String m, int s) {    
+			model = m;
+			speed = s;    // 위에 입력한 값이 없어서 여기서 초기화 해주는 거임
+		}
+}
+//13
+package sec03;
+
+public class Car2 {
+
+		String company = "현대자동차";
+		String model;
+		String color;
+		int maxSpeed;
+		
+		public Car2(String model) {
+			this(model, "은색", 250);
+		}
+
+		public Car2(String model, String color) {
+			this(model,color,250); 
+		}
+
+		public Car2(String model, String color, int maxSpeed) {
+			this.model = model;
+			this.color = color;
+			this.maxSpeed = maxSpeed;
+		}
+		
+}
+//14
+package sec03;
+
+public class Card {
+
+		private String cardName;
+		
+		public Card() {        // 기본 생성자
+			this("현대");      
+		}
+		
+		public Card(String cardName) {
+			this.cardName = cardName;
+		}
+		
+		public void getCard() {
+			System.out.println("카드사는 " + this.cardName + "입니다.");
+		}
+		
+		
+	public static void main(String[] args) {
+		
+		Card card1 = new Card();
+		Card card2 = new Card("삼성");  // 매개변수 입력
+		
+		card1.getCard();   // 호출
+		card2.getCard();
+
+	}
+
+}
+//15
+package sec03;
+
+public class Car예제_원본 {
+
+	public static void main(String[] args) {
+		
+		// Car car = new Car();   에러! 입력값이 없음0
+		
+		Car1 car = new Car1();   // 기본 생성자 호출
+		Car1 car2 = new Car1("그랜저", 200); // 사용자 정의 생성자 호출
+		
+		
+
+	}
+
+}
+//16
+package sec03;
+
+public class Car예제1 {
+
+	public static void main(String[] args) {
+		
+		Car1 car2 = new Car1("BMW750i",250);   // 사용자 정의 생성자 호출
+		
+		System.out.println("모델명 : " + car2.model);
+		System.out.println("속도 : " + car2.speed);
+		System.out.println("제조회사 : " + car2.company);
+	}
+
+}
+//17
+package sec03;
+
+public class Car예제2 {
+
+	public static void main(String[] args) {
+		
+		Car car = new Car("테슬라3", "빨강", 350); {
+			
+			System.out.println("모델명: " + car.model);
+			System.out.println("색상: " + car.color);
+			System.out.println("최고 속도: " + car.maxspeed);
+		}
+	}
+	
+
+}
+//18
+package sec03;
+
+public class Student1 {
+	
+	String name;
+	int age;
+	String studentNumber;
+	String phoneNumber;
+	
+	public Student1() {
+		// 기본 생성자
+	}
+	
+	public Student1(String name, int age) {
+		// 매개변수 2개 생성자
+		this.name = name;
+		this.age = age;	
+	}
+	
+	public Student1(String name, String studentNumber, String phoneNumber) {
+		// 매개변수 3개 생성자
+		this.name = name;
+		this.studentNumber = studentNumber ;
+		this.phoneNumber= phoneNumber;
+		
+	}
+}	
+	//19
+package sec03;
+
+// 생성자는 반드시 클래스명과 동일하게 정의할 것!!
+// 생성자 앞에는 접근 제어자(public 등)만 올 수 있다.
+
+public class Student객체 {
+
+	String name;    			// 이름
+	int age;       				// 나이
+	String studentNumber;  		// 학번
+	String gender;				// 성별
+	String phone;				// 연락처
+	
+	public Student객체() {
+		// 기본 생성자
+	}
+	
+	public Student객체 (String name, int age) {   
+		// 매개변수 2개 생성자
+		this.name = name;
+		this.age = age;
+	}
+	
+	public Student객체 (String name, String studentNumber, String phone) {
+		// 매개변수 3개 생성자
+		this.name = name;
+		this.studentNumber = studentNumber;
+		this.phone = phone;
+		
+	}
+}
+
+//20
+package sec03;
+
+public class Student예제 {
+
+	public static void main(String[] args) {
+
+		Student1 student1 = new Student1();
+		System.out.println(student1.name);
+		System.out.println(student1.age);
+
+		Student1 student2 = new Student1("홍수아", 30);
+		System.out.println(student2.name);
+		System.out.println(student2.age);
+		
+		Student1 student3 = new Student1("홍길동", "20231111", "010-5555-7777");
+		System.out.println(student3.name);
+		System.out.println(student3.studentNumber);
+		System.out.println(student3.phoneNumber);
+
+	}
+}
+//21
+package sec03;
+
+public class 자동차예제3 {
+
+	public static void main(String[] args) {
+		
+	Car2 car2 = new Car2("자가용");
+	System.out.println(car2.company);
+	System.out.println(car2.model);
+	System.out.println(car2.color);
+	System.out.println(car2.maxSpeed);
+	}
+}
+
+//22
+package sec03_01;
+
+public class Student {
+	//라이브러리로서의 코드(필드, 생성자, 메소드)
+	
+	
+	//실행하기 위한 코드
+	public static void main (String [] args) {
+		Student s1 = new Student();
+		
+	}
+
+}
+
+
+
+
+
+
