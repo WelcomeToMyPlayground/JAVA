@@ -1,0 +1,356 @@
+//1
+package sec04;
+
+		//시동걸기, 시동끄기 return x
+		// (기본 속도 100) + 속도 10씩 증가
+		// 감소 - 10 
+		// 멈춤 
+public class Car {
+	
+	
+	private int speed = 100;    // 기본속도
+	
+	
+	void powerOn() {
+		System.out.println("시동이 걸렸습니다.");
+	}
+	
+	void powerOff() {
+		System.out.println("시동이 꺼졌습니다.");
+	}
+	
+	int speedUp (int x) {
+		
+		speed += x;
+		return speed;
+	}
+	
+	int speedDown (int y) {
+		
+		speed -= y;
+		return speed;
+	}
+	
+	int breakZero() {
+		speed = 0;
+		return speed;
+	}
+
+}
+//2
+package sec04;
+
+public class CarExample {
+
+	public static void main(String[] args) {
+		
+		Car car = new Car();
+		
+		car.powerOn();
+		
+		int result1 = car.speedUp(30);
+		System.out.println("현재 속도는: " + result1 + "입니다.");
+		
+		int result2 = car.speedUp(20);
+		System.out.println("현재 속도는: " + result2 + "입니다.");
+		
+		int result3 = car.speedDown(70);
+		System.out.println("현재 속도는: " + result3 + "입니다.");
+		
+		int result4 = car.breakZero();
+		System.out.println("현재 속도는: " + result4 + "입니다.");
+		
+		car.powerOff();
+		
+
+	}
+
+}
+
+//3
+package sec04;
+
+public class Computer {
+
+	// 배열 전체 숫자의 합계 (배열 개수 정해지지 않았을 때)
+	
+	int sum1(int[] values) {
+		int sum = 0;
+		for(int i = 0; i<values.length; i++) {
+			sum +=values[i];
+		}
+		return sum;
+	}
+	
+	public static void main(String[] args) {
+		Computer myCom = new Computer();
+		
+		int[] values1 = {1,2,3};
+		int result = myCom.sum1(values1);
+		System.out.println(result);
+		
+		int result2 = myCom.sum1(new int[] {1,2,3});
+		System.out.println(result2);
+	}
+}
+//4
+package sec04;
+
+public class GasCar {
+	// 필드
+	int gas;
+
+	void setGas(int gas) {
+		this.gas = gas;
+		System.out.println("가스가 5만큼 충전되었습니다.");
+	}
+
+	boolean isLeftGas() {
+		if (gas == 0) {
+			System.out.println("가스가 없습니다.");
+			return false;   // false를 리턴
+		}
+		System.out.println("가스가 있습니다.");
+		return true;  //true를 리턴
+	}
+
+	void run() {
+		while (true) {
+			if (gas > 0) {
+				System.out.println("가스잔량 : " + gas);
+				gas -= 1;
+			} else {
+				System.out.println("가스잔량 : " + gas);
+				return;  // 메소드 실행 종료
+			}
+		}
+	}
+}
+
+//5
+package sec04;
+
+public class GasCarExample {
+
+	public static void main(String[] args) {
+		
+		GasCar myCar = new GasCar();
+		
+		myCar.setGas(5);  // Car의 SetGas() 메소드 호출
+		
+		boolean gasState = myCar.isLeftGas();  //  Car의 isLeftGasGas() 메소드 호출
+		if(gasState) {
+			System.out.println("출발합니다.");
+			myCar.run();
+		}
+		
+		if(myCar.isLeftGas()) {
+			System.out.println("가스를 주입할 필요가 없습니다.");
+		} else {
+			System.out.println("가스를 주입하세요.");
+		}
+
+	}
+
+}
+
+//6
+package sec04;
+
+public class ReturnExam {
+
+	
+	int plus(int x, int y) {
+		int result = x+y;
+		return result;
+	}	
+	
+	int plus2(int x, int y) {
+		byte result = (byte) (x+y);
+		return result;
+	}
+		
+	public static void main(String[] args) {
+	
+			ReturnExam reExam = new ReturnExam();
+			
+			int result1 = reExam.plus(200, 300);
+			System.out.println(result1);
+			
+			int result2 = reExam.plus2(200, 300);  
+			System.out.println(result2);
+	}
+
+}
+
+//7
+package sec04;
+
+// 클래스
+public class Travel {
+	
+	private int oil;   // 멤버 변수 선언
+	private String location;
+	
+	// source로 자동완성
+	public int getOil() {
+		return oil;
+	}
+	public void setOil(int oil) {
+		this.oil = oil;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	// 들어온 값이 감소
+	void oilMinus (int x) {
+		oil -= x;
+	}
+	
+	// true, false를 while문에서 이용할 거임
+	boolean isOilLeft() {
+		if(oil<=0) {
+			System.out.println("휘발유가 없어요. 여행 종료하세요");
+			return false;
+		}
+		System.out.println("휘발유가 남았어요. 계속 여행하세요");
+		return true;
+	}	
+}
+//8
+package sec04;
+
+import java.util.Scanner;
+
+public class TravelExample {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+
+		Travel tr = new Travel();
+
+		tr.setOil(20); // 초기 셋팅 set 사용
+		tr.setLocation("광주");
+
+		while (tr.isOilLeft()) {
+			System.out.print("여행할 지역명을 입력하세요 : ");
+			String local = s.next();
+
+			if (local.equals("서울")) {
+				tr.oilMinus(10);
+				tr.setLocation("서울");
+				System.out.println("현재 위치는 : " + tr.getLocation());
+
+			} else if (local.equals("부산")) {
+				tr.oilMinus(5);
+				tr.setLocation("부산");
+				System.out.println("현재 위치는 : " + tr.getLocation());
+
+			} else {
+				tr.oilMinus(2);
+				tr.setLocation("화순");
+				System.out.println("현재 위치는 : " + tr.getLocation());
+			}
+
+		}
+	}
+}
+
+//9
+package sec04;
+
+public class 계산기 {
+	
+	void powerOn() {   // 입력값이 없어서 호출만 하면 됨
+		System.out.println("전원을 켭니다.");
+	}
+	
+	void powerOff(){
+		System.out.println("전원을 끕니다.");
+	}
+	
+	int plus (int x, int y) { 
+		
+		 int result = x + y;
+		 return result;
+	}
+	
+	int minus (int x, int y) {
+		int result;
+		
+		if(y > x) {
+			result = y - x;
+		} else {
+			result = x - y;
+		}
+		return result;
+	}
+		
+	int mul1 (int x, int y) {
+	
+		int result = x * y ;
+		return result;
+	}
+	
+	// 문제: 둘 중 값이 하나라도 0이면, 0은 화면상에 출력할 수 없습니다 
+	// 숫자 -> 문자열 String.valueOf();	
+	String mul (int x, int y) {			
+		if (x == 0 || y == 0) {
+			String m = "0은 입력할 수 없습니다";
+			return m;
+		} else {
+			int result = x * y;
+			return String.valueOf(result);
+		}
+	}
+	
+	double divide(int x, int y) {
+		double result = (double) x/y;
+		return result;
+	}
+	
+	
+}
+
+//10
+package sec04;
+
+public class 계산기예제1 {
+
+	public static void main(String[] args) {
+		
+		계산기 myCalc = new 계산기();
+		myCalc.powerOn();  // 호출
+		
+		int result1 = myCalc.plus(5, 3);
+		System.out.println(result1);   // 8
+		
+		int result2 = myCalc.minus(3, 5);   
+		System.out.println(result2);   // 2
+		
+		int result3 = myCalc.mul1(3, 5);   
+		System.out.println(result3);   
+		
+		
+		// 둘 중 값이 하나라도 0이면
+		// "0은 입력할 수 없습니다"를 출력
+		String result4 = myCalc.mul(0, 5);
+		System.out.println(result4);   
+		
+		double result5 = myCalc.divide(5, 2);
+		System.out.println(result5);
+		
+		//작 -> 큰  자동 형변환 
+		byte x = 10;
+		byte y = 4;
+		double result6 = myCalc.divide(x, y);
+		System.out.println(result6);}
+
+}
+
+
+
