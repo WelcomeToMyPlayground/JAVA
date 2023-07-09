@@ -1,16 +1,17 @@
-//1
-package sec04;
+// 1  [Calculator - 라이브러리 클래스]
 
-// 틀
+package sec04;
 public class Calculator {
-	
+
+	// 메소드 호출에 따른 순서
+
 	// 3
-	int plus(int x, int y) {        // 합계를 구하는 메소드
+	int plus(int x, int y) {            // 합계를 구하는 메소드 (메소드명: plus)
 		int result = x + y;
 		return result;
 	}
 	// 2
-	double avg(int x, int y) {	    // 평균을 구하는 메소드
+	double avg(int x, int y) {	    // 평균을 구하는 메소드  (메소드명: avg)
 		double sum = plus(x,y);     // 객체 내부에서 합계 메소드 호출			
 		double result = sum / 2;
 		return result;
@@ -19,19 +20,17 @@ public class Calculator {
 	// 1
 	void excute() {
 		double result = avg(7, 10);
-		println("실행결과: " + result);      // 문자열 + 숫자 = 문자열 , println이라는 메소드임
+		println("실행결과: " + result);      // 문자열 + 숫자 = 문자열 , println이라는 메소드를 호출 (객체 내부 호출, 값 전달 O)
 	}
 	
 	// 4
-	void println(String message) {
-		System.out.println(message);
+	void println(String message) {		    // (메소드명:println), 리턴값 없이
+		System.out.println(message);	    // 바로 출력 
 	}
 }
-
-//2
+-------------------------------------------------------------------------------------------------------------------------
+// 1-1  [Calculator - 실행 클래스]
 package sec04;
-
-// 실행
 public class CalculatorExample {
 
 	public static void main(String[] args) {
@@ -53,10 +52,9 @@ public class CalculatorExample {
 		
 		
 	}
-
 }
-
-//3
+-------------------------------------------------------------------------------------------------------------------------
+// 2 [Calculator2 - 라이브러리 클래스]
 package sec04;
 
 public class Calculator2 {
@@ -70,8 +68,8 @@ public class Calculator2 {
 		return width * height;
 	}
 }
-
-//4
+-------------------------------------------------------------------------------------------------------------------------
+// 2-1 [Calculator2 - 실행 클래스]
 package sec04;
 
 public class CalculatorExample2 {
@@ -85,11 +83,10 @@ public class CalculatorExample2 {
 
 		System.out.println("정사각형 넓이 : " + result1);
 		System.out.println("직사각형 넓이 : " + result2);
-
 	}
 }
-
-//5
+-------------------------------------------------------------------------------------------------------------------------
+// 3  [** 정적 멤버 **]
 package sec05;
 
 public class Calculator {
@@ -99,7 +96,6 @@ public class Calculator {
 		return x + y;
 	}
 	
-
 	static int minus(int x, int y) {
 		return x - y;
 	}
@@ -109,8 +105,8 @@ public class Calculator {
 		System.out.println(result1);
 	}
 }
-
-//6
+-------------------------------------------------------------------------------------------------------------------------
+// 4  [라이브러리 + 실행(main 메소드) 같이]
 package sec05;
 
 public class Car {
@@ -124,36 +120,42 @@ public class Car {
 		
 	}
 	
-	// 매개변수 1개 생성자, 기본 생성자는 안 만들어짐
+	// 매개변수 1개 생성자
 	Car(String model) {
 		this.model = model;
 	}
 	
-	// 매개변수 1개 메소드, 리턴값 없음
+	// 매개변수 1개 메소드, void -> 리턴값 없음
 	void setSpeed(int speed) {
 		this.speed = speed;
 	}
 	
-	// 매개변수 없는 메소드, 리턴값 없음
+	// 매개변수 없는 메소드,  void -> 리턴값 없음
 	// 10부터 50까지 5번 반복해서 속도를 넣고 출력
+
 	void run() {
 		for(int i =10; i <= 50; i+=10) {
 			this.setSpeed(i);
 			System.out.println(this.model+"가 달립니다. (시속 : " + this.speed +"km/h");
 		}
 	}
-	
+
+	// main -> 실행!!!
 	public static void main(String[] args) {
-		Car myCar = new Car("포르쉐");
-		myCar.run();
-		
-		// speed = 60;    불가능
+
+		// Car 객체 생성
+		Car myCar = new Car("포르쉐");   // 매개변수가 1개인 생성자를 호출 ("포르쉐" -> String)
+
+		myCar.run();			// 리턴값이 없는 run() 메소드를 호출
+ 		
+	     // speed = 60;                     // 불가능 
+
 		Car yourCar = new Car();
+
 		yourCar.speed = 60;
 	}
-
-
-//7
+-------------------------------------------------------------------------------------------------------------------------
+// 5  [** Singleton **]
 package sec05;
 
 public class Singleton {
@@ -180,8 +182,8 @@ public class Singleton {
 			System.out.println("다른 객체");
 	}
 }
-
-//8
+-------------------------------------------------------------------------------------------------------------------------
+// 6  [MemberService - 라이브러리 클래스]
 package sec04;
 
 // 268p 3번 
@@ -201,10 +203,9 @@ public class MemberService {
 	void logout(String id) {
 		System.out.println("로그아웃 되었습니다.");
 	}
-
 }
-
-//9
+-------------------------------------------------------------------------------------------------------------------------
+// 6-1  [MemberService - 실행 클래스]
 package sec04;
 
 public class MemberServiceExample {
@@ -221,4 +222,4 @@ public class MemberServiceExample {
 		}
 	}
 }
-
+-------------------------------------------------------------------------------------------------------------------------
