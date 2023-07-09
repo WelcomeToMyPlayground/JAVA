@@ -1,0 +1,178 @@
+// 1  [Car - 라이브러리]
+
+package Class;
+
+public class Car {
+	// 필드 선언
+	String company = "현대자동차";
+	String model;
+	String color;
+	int maxSpeed;
+
+	// 생성자 선언
+	
+	// 생성자 1
+	Car() {
+		System.out.println("[1번 생성자]");
+	}
+	
+	// 생성자2
+	Car(String model) {
+		this.model = model;
+		System.out.println("[2번 생성자]");
+	}
+	
+	// 생성자 3
+	Car(String model, String color) {
+		this.model = model;
+		this.color = color;
+		System.out.println("[3번 생성자]");
+	}
+	
+	// 생성자 4
+	Car(String model, String color, int maxSpeed) {
+		this.model = model;
+		this.color = color;
+		this.maxSpeed = maxSpeed;
+		System.out.println("[4번 생성자]");
+	}
+}
+
+// 1-1  [Car - 실행 클래스]
+
+package Class;
+
+public class CarExample {
+
+	public static void main(String[] args) {
+		
+		// 생성자1 호출
+		Car car1 = new Car();
+		System.out.println(car1.company);   
+		System.out.println();
+		
+		// 생성자2 호출 
+		Car car2 = new Car("자가용");               // String
+		System.out.println(car2.company);
+		System.out.println(car2.model);
+		System.out.println();
+		
+		// 생성자3 호출
+		Car car3 = new Car("자가용", "빨강");      // String, String
+		System.out.println(car3.company);
+		System.out.println(car3.model);
+		System.out.println(car3.color);
+		System.out.println();
+		
+		// 생성자4 호출
+		Car car4 = new Car("택시", "검정", 200);    // String, String, int
+		System.out.println(car4.company);
+		System.out.println(car4.model);
+		System.out.println(car4.color);
+		System.out.println(car4.maxSpeed);
+		System.out.println();
+	}
+
+}
+
+// 1-2 [Car - 실행 클래스 출력값]
+
+[1번 생성자]
+현대자동차
+
+[2번 생성자]
+현대자동차
+자가용
+
+[3번 생성자]
+현대자동차
+자가용
+빨강
+
+[4번 생성자]
+현대자동차
+택시
+검정
+200
+---------------------------------------------------------------------------------------------------
+// 2  [Car2 - 라이브러리]
+
+  package Class;
+
+public class Car2 {
+	// 필드 선언
+	String company = "현대자동차";
+	String model;
+	String color;
+	int maxSpeed;
+
+	// 생성자 선언
+	
+	// 생성자1
+	Car2(String model) {
+		//System.out.println("1번 생성자");        // 컴파일 에러 -> this(매개값)은 생성자의 첫 줄에 작성되어야 해서 this 위에는 아무것도 올 수 없다
+		this(model, "은색", 250);   					    // 25라인 생성자 호출
+		//System.out.println("1번 생성자");        // this 다음에 쓰면 가능
+	}
+	
+	// 생성자 2
+	Car2(String model, String color) {
+		this(model, color, 250);    				     // 25라인 생성자 호출
+	}
+	
+	// 생성자 3
+	Car2(String model, String color, int maxSpeed) {      // 25라인
+		this.model = model;
+		this.color = color;
+		this.maxSpeed = maxSpeed;
+	}
+}
+
+// 2-1 [Car2 - 실행 클래스]
+
+package Class;
+
+public class CarExample2 {
+
+	public static void main(String[] args) {
+		
+		// 생성자1 호출
+		Car2 car1 = new Car2("자가용");             
+		System.out.println(car1.company);
+		System.out.println(car1.model);
+		System.out.println();
+		
+		// 생성자2 호출
+		Car2 car2 = new Car2("자가용", "빨강");      
+		System.out.println(car2.company);
+		System.out.println(car2.model);
+		System.out.println(car2.color);
+		System.out.println();
+		
+		// 생성자3 호출
+		Car2 car3 = new Car2("택시", "검정", 200);  
+		System.out.println(car3.company);
+		System.out.println(car3.model);
+		System.out.println(car3.color);
+		System.out.println(car3.maxSpeed);
+		System.out.println();
+	}
+
+}
+
+// 2-2 [Car2 - 실행 클래스 출력값]
+
+현대자동차
+자가용
+
+현대자동차
+자가용
+빨강
+
+현대자동차
+택시
+검정
+200
+
+---------------------------------------------------------------------------------------------------
+  // 3 
