@@ -288,7 +288,7 @@ CarExample 클래스 생성 (메인 구문)
  아래쪽 방향키 = 속도 감소 변수를 s로 설정) 
 
 단, 속도는 마이너스가 될 수 없음
-
+-----------------------------------------------------------------------
 // 7-1 [Car - 라이브러리 클래스]
 
 package _01;
@@ -326,28 +326,68 @@ public class Car {
 		int changespeed = s.nextInt(); // 변경할 속도를 Scanner로 받아 changespeed 변수에 넣음
 		int presentspeed = getSpeed(); // 초기값 50을  presentspeed 변수에 넣음
 		
-		// 속도는 키보드의 위쪽 방향키 속도 증가,
-		//아래쪽 방향키 속도 감소(10씩 변경)
-		//(위쪽 방향키= 속도증가 변수를 a로 설정,
-		// 아래쪽 방향키 = 속도 감소 변수를 s로 설정) 
-		//단, 속도는 마이너스가 될 수 없음
-		
-		//if(key.equals("s"))
-		// 집 가서 하기!
+		// 덜함
 		
 		
 	}
 	
 	
 }
+-----------------------------------------------------------------------
+// 7-1 [Car - 라이브러리 클래스]
+package Method;
 
+import java.util.Scanner;
 
+public class Car {
 
+	private String name;
+	private String company;
+	private String color;
+	private int speed = 50;
 
+	Scanner s = new Scanner(System.in);
 
+	public String getColor() {
+		return color;
+	}
 
-// 7-2 [Car - 실행 클래스
-package _01;
+	// 색상 변경
+	public void setColor() {
+		System.out.println("변경할 색상을 입력하세요");
+		String changeColor = s.next();
+		color = changeColor;
+		System.out.println("변경된 색상은 : " + getColor());
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	// 속도 변경
+	public void setSpeed() {
+		System.out.println("속도 증가는 a를, 속도 감소는 s를 입력하세요");
+		String key = s.next();
+
+		System.out.println("속도를 입력해주세요");
+		int changeSpeed = s.nextInt();
+		int presentSpeed = getSpeed();
+
+		if (key.equals("s") && presentSpeed < changeSpeed) {
+			System.out.println("속도는 마이너스가 될 수 없습니다.");
+		} else if (key.equals("s") && presentSpeed >= changeSpeed) {
+			speed -= changeSpeed;
+			System.out.println("현재 속도: " + getSpeed());
+		} else {
+			speed += changeSpeed;
+			System.out.println("현재 속도: " + getSpeed());
+		}
+	}
+
+}
+-----------------------------------------------------------------------
+// 7-2 [Car - 실행 클래스]
+package Method;
 
 import java.util.Scanner;
 
@@ -355,33 +395,32 @@ public class CarExample {
 
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		
-		Car car = new Car();
-		
 		boolean run = true;
-		
-		while(run) {
-			System.out.println("숫자 입력(1은 색상변경, 2는 속도변경, 3은 중단)");
+
+		Car mycar = new Car();
+
+		while (run) {
+			System.out.println("숫자 입력 (1은 색상변경, 2는 속도 변경, 3은 중단)");
 			int choice = s.nextInt();
-			
-			switch(choice) {
+
+			switch (choice) {
 			case 1:
-				//색상변경
-				car.setColor();
+				// 색상 변경
+				mycar.setColor();
 				break;
 			case 2:
-				// 속도변경
-				car.setSpeed();	
+				// 속도 변경
+				mycar.setSpeed();
 				break;
 			case 3:
-				//실행 중단
+				// 중단
 				run = false;
+				break;
 			default:
 				System.out.println("값을 잘못 입력하셨습니다");
 			}
 		}
-		
-
+		System.out.println("프로그램을 종료합니다.");
 	}
 
 }
