@@ -1,0 +1,269 @@
+// 1
+package sec06.exam02.mycompany;  
+
+
+import sec06.exam02.hankook.*;
+
+public class Car2 {
+	
+	// Tire은 public이라서 접근 가능
+	Tire tr1 = new Tire();  
+	
+	// Tire2는 default라서 접근 불가능
+	// Tire tir2 = new Tire2();  - 에러
+	
+}
+
+// 2
+package sec06.exam02.mycompany;  // 현재 파일의 패키지 이름
+
+import sec06.exam02.hankook.*;	 // 다른 패키지를 끌어올 때 import 선언
+import sec06.exam02.kumho.*;
+
+public class Car {
+	
+	SnowTire tire1 = new SnowTire();
+	// Tire tire2 = new Tire();   // 어느 패키지의 Tire 파일인지 알 수 없음, 똑같은 이름의 클래스를 2개 import시킴
+
+	// 경로명까지 적어줄 것
+	// 자동 import 단축키: ctrl + shift+ o
+	
+	sec06.exam02.hankook.Tire tire3 = new sec06.exam02.hankook.Tire();
+	sec06.exam02.kumho.Tire tire4 = new sec06.exam02.kumho.Tire();
+	
+}
+
+// 3
+package sec06;
+
+import java.util.Scanner;
+
+//
+public class Car {
+
+	// 필드
+	private String Name;
+	private String Company;
+	private String Color;
+	private int Speed = 50;
+
+	Scanner s = new Scanner(System.in);
+	public Car(String name, String company, String color, int speed) {
+
+		this.Name = name;
+		this.Company = company;
+		this.Color = color;
+		this.Speed = speed;
+	}
+
+	public Car() {
+
+	}
+
+	public String getColor() {
+		return Color;
+	}
+
+	// 색상 변경
+	public void setColor() {
+		System.out.println("자동차 색상을 입력해주세요");
+		String changeColor = s.next();
+		Color = changeColor;
+		System.out.println("자동차 색상: " + getColor());
+	}
+
+	public int getSpeed() {
+		return Speed;
+	}
+
+	public void setSpeed() {
+		System.out.println("키를 눌러주세요. a는 속도 증가, s는 속도 감소");
+		String key = s.next();
+		System.out.println("속도를 입력해주세요");
+		int changeSpeed = s.nextInt();
+		int presentSpeed = getSpeed();
+		
+		if(key.equals("s") && presentSpeed< changeSpeed) {
+			System.out.println("속도는 마이너스가 될 수 없습니다.");
+		} else if(key.equals("s") && presentSpeed >= changeSpeed) {
+			Speed -= changeSpeed;
+			System.out.println("현재 속도: " + getSpeed());
+		} else {
+			Speed += changeSpeed;
+			System.out.println("현재 속도: " + getSpeed());
+		}
+		
+	// 속도 변경
+//	public void setSpeed(String key, int speed) {
+//		int presentSpeed = getSpeed();
+//		if (key.equals("s") && presentSpeed == 0) {
+//			System.out.println("현재 속도가 0 입니다.");
+//		} else if (key.equals("s") && presentSpeed != 0) {
+//			speed -= speed;
+//		} else {
+//			speed += speed;
+//		}
+
+	}
+}
+
+// 4
+package sec06;
+
+import java.util.Scanner;
+
+public class CarExample {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		Car car = new Car();
+		boolean run = true;
+
+		while (run) {
+			System.out.print("숫자를 입력하세요. (1은 색상 변경, 2는 속도 변경, 3은 중단) : ");
+			int choice = s.nextInt();
+
+			switch (choice) {
+			case 1:
+				car.setColor();
+				break;
+			case 2:
+				car.setSpeed();
+				break;
+			case 3:
+				run = false;
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+	}
+
+}
+
+// 5
+package sec06;
+
+import java.util.Scanner;
+
+public class Student {
+	
+	private String name="홍길동"; 		 //학생 이름
+	private String code="A123"; 		 //학번
+	private int middelScore;			 //중간고사 점수
+	private int finalScore;		         //기말고사 점수
+	private double avg;		 			 //평균점수
+	
+	final String id="admin";      // 관리자 아이디
+	final int password = 1234;    // 관리자 비밀번호
+	
+
+	Scanner s = new Scanner(System.in);
+	
+	public boolean checkLogin() {
+		
+		System.out.println("아이디를 입력하세요");
+		String id = s.next();
+		System.out.println("비밀번호를 입력하세요");
+		int password = s.nextInt();
+		
+		if(this.id.equals(id) && this.password == password) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void inputExam() {
+		
+		System.out.println("중간고사 성적을 입력하세요");
+		setMiddelScore(s.nextInt());
+		System.out.println("기말고사 성적을 입력하세요");
+		setFinalScore(s.nextInt());
+		
+		double avg =(double)(getMiddelScore() +getFinalScore())/2 ;
+		setAvg(avg);
+		System.out.println(getName() + "님의 평균 점수는 : " + getAvg());
+		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public int getMiddelScore() {
+		return middelScore;
+	}
+	public void setMiddelScore(int middelScore) {
+		this.middelScore = middelScore;
+	}
+	public int getFinalScore() {
+		return finalScore;
+	}
+	public void setFinalScore(int finalScore) {
+		this.finalScore = finalScore;
+	}
+	public double getAvg() {
+		return avg;
+	}
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
+	public String getId() {
+		return id;
+	}
+	public int getPassword() {
+		return password;
+	}
+}
+
+// 6
+package sec06;
+
+import java.util.Scanner;
+
+public class StudentExample {
+
+	public static void main(String[] args) {
+		
+		Student student = new Student();
+		Scanner s = new Scanner(System.in);
+		
+		boolean run = true;
+		
+		while(run) {
+			boolean check = student.checkLogin();   // 로그인 점검 메소드 작성
+			
+			if(check) {  //로그인 되었다면 로그아웃(종료), 성적 입력 처리
+				System.out.println("작업을 선택해주세요");
+				System.out.println("1번은 로그아웃, 2번은 성적 입력");
+				int choice = s.nextInt();
+				
+				if(choice==1) {
+					run = false;
+				} else if(choice==2) {
+					student.inputExam();  //성적 입력 메소드 작성
+				}
+			} else {
+				System.out.println("로그인이 실패하였습니다.");
+			}
+		}
+		
+//		Student s = new Student("홍길동",30);
+//		
+//		s.address ="광주광역시";    // 에러 - 멤버 변수를 private로 선언했기 때문에 접근 불가능
+//		s.setAddress("광주광역시");    
+//		System.out.println(s.getAddress()); // 값 가져오기 - getter
+	}
+
+}
+// 7
