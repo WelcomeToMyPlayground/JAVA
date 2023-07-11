@@ -154,4 +154,220 @@ public class StudentExample {
 
 }
 ----------------------------------------------------------------------------------
-//7 
+//7 부모 클래스
+package sec01.exam02;
+
+public class Calculator {
+	
+	double areaCircle(double r) {
+		System.out.println("Calculator의 areaCircle() 실행");
+		return 3.14159 * r * r;
+	}
+}
+
+//8 자식 클래스 (오버라이딩!!)
+package sec01.exam02;
+
+public class computer2 extends Calculator {
+
+	@Override
+	double areaCircle(double r) {
+		System.out.println("Computer2의 areaCircle() 실행");
+		return Math.PI * r * r;
+	}
+
+}
+//9 메소드 재정의 테스트
+package sec01.exam02;
+
+public class ComputerExample {
+
+	public static void main(String[] args) {
+		
+		int r = 10;
+		
+		Calculator calculator = new Calculator();   // 부모
+		System.out.println("원의 면적: " + calculator.areaCircle(r));
+		System.out.println();
+		
+		computer2 computer = new computer2();		// 자식
+		System.out.println("원의 면적: " + computer.areaCircle(r)); // 자식 클래스에서 재정의된 메소드를 호출
+		System.out.println();
+		
+		//출력결과
+		//Calculator의 areaCircle() 실행
+		//원의 면적: 314.159
+
+		//Computer2의 areaCircle() 실행
+		//원의 면적: 314.1592653589793
+
+	}
+}
+----------------------------------------------------------------------------------
+//10 부모 클래스
+package sec01;
+
+public class AirPlane {
+	
+	// 메소드
+	// 매개변수도, (void 사용) 리턴값도 없어 바로 호출하고 끝남
+	public void land() {
+		System.out.println("착륙합니다.");
+	}
+
+	public void fly() {
+		System.out.println("일반비행합니다");
+	}
+
+	public void takeOff() {
+		System.out.println("이륙합니다");
+	}
+
+}
+
+//11 자식 클래스 (super 변수 사용!! - 부모 메소드 호출)
+package sec01;
+
+public class SupersonicAirplane extends AirPlane {
+
+	// 정적 상수 2개 생성, 상수 이름은 관례적으로 대문자를 씀
+	public static final int NORMAL = 1;
+	public static final int SUPERSONIC = 2;
+
+	public int flyMode = NORMAL;
+
+	@Override
+	public void fly() {
+		if (flyMode == SUPERSONIC) {
+			System.out.println("초음속비행합니다.");
+		} else {
+			super.fly(); // 부모 (AirPlane) 클래스의 fly() 메소드 호출
+		}
+	}
+
+}
+
+//12 자식 실행 클래스
+package sec01;
+
+public class SupersonicAirplaneExample {
+
+	public static void main(String[] args) {
+
+		SupersonicAirplane sa = new SupersonicAirplane();
+
+		sa.takeOff(); // 부모 클래스 메소드 호출 - 이륙합니다
+		sa.fly(); // 일반비행합니다
+		sa.flyMode = SupersonicAirplane.SUPERSONIC;
+		sa.fly(); // 초음속비행합니다
+		sa.flyMode = SupersonicAirplane.NORMAL;
+		sa.fly(); // 일반비행합니다
+		sa.land(); // 부모 클래스 메소드 호출 - 착륙합니다
+
+		// 출력 결과
+
+		// 이륙합니다
+		// 일반비행합니다
+		// 초음속비행합니다.
+		// 일반비행합니다
+		// 착륙합니다.
+
+	}
+
+}
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+//13 부모 클래스
+package sec01;
+
+public class Human {
+	int weight;      // 몸무게
+	int height;		 // 키
+	String gender;   // 성별
+	
+//	Human() {
+//		
+//	}
+	Human(int weight, int height) {
+		this.weight = weight;
+		this.height = height;
+	}
+	
+	void sleep() {System.out.println("잠이 듭니다");}
+	void awake() {System.out.println("일어납니다");}
+	
+	// Student 에서 오버라이딩 할거임
+	String eat(String food) {
+		String result = food +"을 먹습니다.";
+		return result;			
+	}
+	
+	String run(int speed) {
+		String result = speed+ "속도로 달립니다.";
+		return result;
+	}
+}
+
+//14 자식 클래스
+package sec01;
+
+public class Student extends Human {
+	
+	int studentCode;     // 학번
+	String studentDept;  // 학과
+
+	Student(int weight, int height, int studentCode) {
+		super(weight, height);
+		this.studentCode = studentCode;
+	}
+	
+//	Student(int studentCode, String gender, int height) {
+//		this.studentCode = studentCode;
+//		this.gender = gender; // Human으로부터 상속받은 필드
+//		this.height = height; // Human으로부터 상속받은 필드
+//	}
+	
+	//메소드 
+	void study(String place) {   // 리턴값 없이 출력만 하고 끝남
+		System.out.println(place + "에서 공부합니다.");
+	}
+	
+	void dressOn() {
+		System.out.println("교복을 입습니다.");
+	}
+	
+	void dressOff() {
+		System.out.println("교복을 벗어요.");
+	}
+	
+	//Human의 eat 메소드 오버라이딩
+	@Override
+	String eat(String food) {
+		String result = food + "를 매일 먹어요";
+		return result;
+	}	
+}
+
+//15 자식 실행 클래스
+package sec01;
+
+public class 학생실행구문 {
+
+	public static void main(String[] args) {
+		
+		Student s = new Student(80, 190, 1234);
+		String result = s.eat("피자");
+		System.out.println(result);
+		System.out.println(s.eat("돈가스")); // 이렇게 쓰면 바로 출력도 가능
+
+		// 출력 결과
+		// 피자를 매일 먹어요
+		// 돈가스를 매일 먹어요
+
+	}
+
+}
+----------------------------------------------------------------------------------
+
+
