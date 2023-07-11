@@ -1,0 +1,157 @@
+//1 부모 클래스
+package sec01;
+
+public class CellPhone {
+	// 필드
+	// private String model; !! private 붙으면 상속 불가능!! -> 외부에서 바로 접근 불가능 
+	// -> getter,setter 이용해서 접근
+	String model;
+	String color;
+
+	// 생성자 -> 컴퓨터가 자동으로 디폴드 생성자 만듦 (눈에 안보임)
+
+	// 메소드
+	// default 접근제한: 같은 패키지에서는 아무런 제한 없이 생성자를 호출 가능
+	void powerOn() {
+		System.out.println("전원을 켭니다.");
+	}
+
+	void powerOff() {
+		System.out.println("전원을 끕니다.");
+	}
+
+	void Bell() {
+		System.out.println("벨이 울립니다.");
+	}
+
+	void sendVoice(String message) {
+		System.out.println("자기: " + message);
+	}
+
+	void receiveVoice(String message) {
+		System.out.println("상대방: " + message);
+	}
+
+	void hangUp() {
+		System.out.println("전화를 끊습니다.");
+	}
+
+}
+
+//2 자식 클래스
+package sec01;
+
+public class DmbCellPhone extends CellPhone {
+	
+	// 멤버 필드
+	int channel;  
+	
+	//생성자
+	DmbCellPhone (String model, String color, int channel) {
+		this.model = model;   // CellPhone 클래스로부터 상속받은 필드
+		this.color = color;   // CellPhone 클래스로부터 상속받은 필드
+		this.channel = channel;		
+	}
+	
+	//메소드
+	void turnOnDmb() {
+		System.out.println("채널 " + channel +"번 DB 방송 수신을 시작합니다.");
+	}
+	void changeChannelDmb(int channel) {
+		this.channel = channel;
+		System.out.println("채널 " + channel + "번으로 바꿉니다.");
+	}
+	
+	void turnOffDmb() {
+		System.out.println("DMB 방송 수신을 멈춥니다.");
+	}
+}
+
+//3 자식 클래스 사용
+package sec01;
+
+public class DmbCellPhoneExample {
+
+	public static void main(String[] args) {
+		
+		//DmbCellPhone 객체 생성
+		DmbCellPhone dmbcellPhone = new DmbCellPhone("자바폰","검정", 10);
+		
+		//CellPhone 클래스로부터 상속받은 필드를 출력
+		System.out.println("모델: " + dmbcellPhone.model);  
+		System.out.println("색상: " + dmbcellPhone.color); 
+		
+		//DmbCellPhone 클래스의 필드를 출력
+		System.out.println("채널: " + dmbcellPhone.channel);
+		
+		//CellPhone 클래스로부터 상속받은 메소드를 호출
+		dmbcellPhone.powerOn();
+		dmbcellPhone.Bell();
+		dmbcellPhone.sendVoice("안녕");
+		dmbcellPhone.receiveVoice("안녕하세요.");
+		dmbcellPhone.hangUp();
+		
+		//DmbCellPhone (본인)클래스의 메소드 호출
+		dmbcellPhone.turnOnDmb();
+		dmbcellPhone.changeChannelDmb(30);
+		dmbcellPhone.turnOffDmb();
+	}
+
+}
+----------------------------------------------------------------------------------
+//4 부모 클래스
+package sec01;
+
+public class People {  // 부모 People 클래스
+
+	public String name; // 이름
+	public String ssn; // 주민번호
+
+	// 기본 생성자가 없고 
+	// name과 ssn을 매개값으로 받아 객체를 생성시키는 생성자만 있음 (매개변수 2개짜리)
+	
+	public People(String name, String ssn) {
+		this.name = name;
+		this.ssn = ssn;
+	}
+	
+	// 그렇기 때문에 People을 상속하는 Student 클래스는
+	// 생성자에서 super(name,ssn)으로 People 클래스의 생성자를 호출해야 함
+}
+
+//5 자식 클래스
+package sec01.exam02;
+
+import sec01.People;
+
+public class Student extends People {
+	public int studentNo;   // 학번
+	
+	public Student(String name, String ssn, int studentNo) {
+		super(name, ssn);   //(매개변수 2개짜리) 부모 생성자 호출!!
+		this.studentNo = studentNo;  
+	}
+}
+
+//6 자식 객체 실행 (자식 클래스 사용)
+package sec01.exam02;
+
+public class StudentExample {
+
+	public static void main(String[] args) {
+		
+		Student student = new Student("홍길동", "123456-1234567", 1);
+		
+		System.out.println(student.name); // 부모에게 상속받은 필드 출력
+		System.out.println(student.ssn);  // 부모에게 상속받은 필드 출력
+		System.out.println(student.studentNo); // 본인 필드 출력
+		
+		// 출력내용
+		// 홍길동
+		// 123456-1234567
+		// 1
+	}
+
+}
+----------------------------------------------------------------------------------
+//7 
