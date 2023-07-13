@@ -199,3 +199,131 @@ public class InstanceofExample {
 	}
 }
 ----------------------------------------------------------------------------------------
+// 12
+package sec02.exam07;
+
+public class Tire {
+	
+	// 멤버 필드 추가
+	int cost;   //가격
+	String use; // 타이어 용도(사계절, 여름용, 겨울용)
+	
+	
+	public void run() {
+		System.out.println("일반 타이어가 굴러갑니다.");
+	}
+	
+	public void stop() {
+	System.out.println("타이어가 멈춥니다");
+	}
+}
+
+// 13
+package sec02.exam07;
+
+public class SnowTire extends Tire {
+	
+	int cost; //가격
+	String condition;  // 타이어 마모 상태
+	boolean chain;     // 체인 유무
+	
+	
+	@Override
+	public void run() {
+		System.out.println("스노우 타이어가 굴러갑니다");
+	}
+	
+	public void stop() {
+		System.out.println("스노우 타이어가 멈춥니다");
+		}
+	
+}
+
+//14
+package sec02.exam07;
+
+public class SnowTireExample {
+
+	public static void main(String[] args) {
+		
+		SnowTire st = new SnowTire();
+		Tire tire = new SnowTire();
+		
+		
+		st.run();
+		st.condition="나쁨";
+		System.out.println("타이어 마모 상태: " + st.condition);
+		
+		
+		tire.run();
+		tire.stop();
+
+		//출력결과
+		스노우 타이어가 굴러갑니다
+		타이어 마모 상태: 나쁨
+		스노우 타이어가 굴러갑니다
+		스노우 타이어가 멈춥니다
+
+	}
+}
+----------------------------------------------------------------------------------------
+//15
+package sec03;
+// 추상화
+public abstract class Phone {
+
+	public String owner; // 소유자 필드
+	
+	public Phone(String owner) { // 생성자
+		this.owner = owner;
+	}
+	
+	//리턴 x, 매개변수 x 메소드
+	public void turnOn() {
+		System.out.println("폰 전원을 켭니다.");
+	}
+	
+
+	//리턴 x, 매개변수 x 메소드
+	public void turnOff() {
+		System.out.println("폰 전원을 끕니다.");
+	}
+}
+// 16
+package sec03;
+
+public class SmartPhone extends Phone {
+	
+	int cost; // 가격
+	
+	public SmartPhone(String owner, int cost) {
+		super(owner);
+		this.cost=cost;
+	}
+
+	public void internetSearch() {
+		System.out.println("인터넷 검색을 합니다.");
+	}
+	
+}
+
+//17
+package sec03;
+
+public class PhoneExample {
+
+	public static void main(String[] args) {
+		//Phone phone  = new Phone("홍길동"); 에러
+		// -> 추상 클래스는 직접 객체 생성이 안됨
+		
+		SmartPhone smartphone = new SmartPhone("홍길동", 1200000);
+		// 추상클래스는 다이렉트로 접근 불가능
+		
+		smartphone.turnOn();   		  // 추상 클래스의 메소드
+		smartphone.internetSearch();  // 객체 메소드
+		
+	}
+
+}
+----------------------------------------------------------------------------------------
+//18
