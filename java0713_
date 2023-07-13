@@ -323,7 +323,85 @@ public class PhoneExample {
 		smartphone.internetSearch();  // 객체 메소드
 		
 	}
+----------------------------------------------------------------------------------------
+// 18
+package sec03;
+
+public abstract class Animal {  // 추상 클래스 
+
+	public String kind; // 동물 종류
+
+	public void breathe() {// 메소드
+		System.out.println("숨을 쉽니다.");
+	}
+
+	public abstract void sound(); // 추상 메소드
+}
+//19
+package sec03;
+
+public class Dog extends Animal{
+	
+	public Dog() {
+		this.kind = "포유류";
+	}
+	
+	// 추상 메소드 재정의
+	@Override
+	public void sound() {
+		System.out.println("강아지는 멍멍");
+		
+	}
+	
+}
 
 }
+//20
+package sec03;
+
+public class Cat extends Animal{
+	
+	public Cat() {
+		this.kind = "포유류";
+	}
+	
+	// 추상 메소드 재정의
+	@Override
+	public void sound() {
+		System.out.println("고양이는 야옹");
+		
+	}
+	
+}
+
+//21
+package sec03;
+
+public class AnimalExample {
+
+	public static void main(String[] args) {
+		
+		Dog dog = new Dog();
+		Cat cat = new Cat();
+		// Animal animal = new Animal();  
+		// 추상 클래스는 개체 생성 불가능	
+		dog.sound();
+		cat.sound();
+		
+		// 자동 타입 변환
+		Animal animal = new Dog();
+		animal.sound(); // 오버라이딩된 dog의 메소드 호출
+		
+		animalSound(new Dog());
+	}
+	
+	// 매개변수가 Animal 타입인 메소드
+	public static void animalSound(Animal animal) {
+		animal.sound();
+	}
+}
+
+
+
 ----------------------------------------------------------------------------------------
 //18
