@@ -1,0 +1,119 @@
+//1 부모
+package Class;
+
+public class Animal {
+	
+	void eat() {
+		System.out.println("Animal이 먹습니다.");
+	}
+	void sleep() {
+		System.out.println("Animal이 잡니다.");
+	}
+}
+
+//2 자식
+package Class;
+
+public class Dog extends Animal{
+	
+	// 오버라이딩: 상속 관계에서 부모의 메소드를 재정의해서 자식 클래스에 맞게 사용하는 것
+	// 오버라이딩 - 실행되는 코드 블록 {}만 고쳐 쓰기, 리턴타입이나 매개변수 개수 및 데이터 타입 이름은 동일해야 함
+	
+	void eat() {  // 오버라이딩
+		System.out.println("Dog가 먹습니다");
+	}
+	void sleep() {  // 오버라이딩
+		System.out.println("Dog가 잡니다");
+	}
+}
+ 
+//3 실행
+package Class;
+
+public class OverRideTest {
+
+	public static void main(String[] args) {
+		
+		// 객체 생성
+		Animal myAnimal = new Animal();
+		Dog myDog = new Dog();
+		
+		myDog.eat();
+		myDog.sleep();
+		
+		//출력 결과
+		// Dog가 먹습니다
+		// Dog가 잡니다
+
+	}
+}
+------------------------------------------------------------------------------------------------------------
+  //4
+  package Class;
+
+public class Main {
+	
+	// main 구문 -> 실행
+	public static void main(String[] args) {
+	add(50,10);  // add 메소드 호출 , 결과 60, 메소드에서 바로 출력됨
+	add(30,10); // add 메소드 호출, 결과 40, 메소드에서 바로 출력됨
+	
+	System.out.println(minus(50,10));   // 리턴값 받아옴. 결과 40
+	System.out.println(add(1,2,3,4,5));  // 내가 원하는 개수만큼 받을 수 있다
+	
+	Person person = new Person();
+	Person person2 = new Person("홍길동", 10);
+	
+	}
+	
+	// 메소드
+	public static void add(int x , int y) {
+		System.out.println(x + y);
+	}
+	
+	public static int minus(int x, int y) {
+		return x - y;
+	}
+	
+	public static int add(int ... numbers) {  // 배열로 들어가게된다
+		int sum = 0;
+		for(int i =0; i < numbers.length; i++) {
+			sum = sum+i;
+		}
+		return sum;
+	}
+}
+
+
+class Person{
+	//필드
+	private String name;
+	private int age;
+	
+	Person() {
+		// 기본 생성자
+	}
+	
+	Person(String name, int age) {  // 필드를 전달받아서 만드는 오버로드된 생성자
+		this.name = name;
+		this.age = age;
+	}
+	
+	// 게터 세터
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+}
