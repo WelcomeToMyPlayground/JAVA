@@ -1,0 +1,124 @@
+// 1 - 클래스 문제 1번 (TV클래스) O
+package PR01;
+
+public class TV {
+
+	String model;
+	int year;
+	int inch;
+
+	public TV(String model, int year, int inch) {
+		this.model = model;
+		this.year = year;
+		this.inch = inch;
+	}
+	public void show() {
+		System.out.println(this.model + "에서 만든 " +this.year + "년형 " + this.inch + "인치 TV");
+	}
+}
+
+// 1-1
+package PR01;
+
+public class TV_Example {
+
+	public static void main(String[] args) {
+		TV myTV = new TV("삼성", 2023, 55);
+		myTV.show();
+
+    // 출력결과
+    // 삼성에서 만든 2023년형 55인치 TV
+	}
+}
+------------------------------------------------------------------------------------------------
+  // 2 - 클래스 문제 2번 -> 아직 다 못함!!! X
+  package PR01;
+
+import java.util.Scanner;
+
+public class Phone {
+
+	String name;
+	String phoneNumber;
+
+	public Phone() {
+
+	}
+
+	public Phone(String name, String phoneNumber) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+
+	Scanner s = new Scanner(System.in);
+	String nameNumber[];
+	void count() {
+		System.out.print("인원수를 입력하세요 : ");
+		int count = s.nextInt();
+		nameNumber = new String[count];
+
+		for (int i = 0; i < nameNumber.length; i++) {
+			System.out.print("이름과 전화번호(이름과 번호는 빈 칸 없이 입력) : ");
+			 name = s.next();
+			 phoneNumber = s.next();
+			 nameNumber[i] = new nameNumber (name, phoneNumber);
+		}
+		System.out.println("저장되었습니다");
+	
+		boolean run = true;
+		while(run)
+			System.out.print("검색할 이름: ");
+			String name = s.next();
+			if (!name.equals(?)) {
+				System.out.println(name+"이 없습니다.");
+			} 
+			if (name.equals(?)) {
+				System.out.println(name+"님의 전화번호는 " + phoneNumber+"입니다.");
+			} 
+			if (name.equals("중지")) {
+				System.out.println("프로그램을 종료합니다.");
+				run = false;
+			}
+		}
+	}
+
+// 2-1
+package PR01;
+
+import java.util.Scanner;
+
+public class PhoneBook {
+
+	public static void main(String[] args) {
+		Phone myphone = new Phone();
+		
+		 myphone.count();
+		
+
+	}
+
+}
+------------------------------------------------------------------------------------------------
+  // 3 - 배열 짝수 출력 O
+  package PR01;
+
+import java.util.Scanner;
+
+public class 과제1 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int a [] = new int[10];
+		System.out.print("정수 10개를 입력하세요 : ");
+		for(int i=0;i<10;i++) {
+			a[i] = s.nextInt();
+			
+			if (a[i] % 2 ==0) {
+				System.out.print(a[i]+" ");  // 짝수만 출력
+			}				
+		}
+	}
+}
+------------------------------------------------------------------------------------------------
+// 4 - 정수 입력받고 별찍기
+  
