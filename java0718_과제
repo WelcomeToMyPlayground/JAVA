@@ -78,4 +78,114 @@ public class TV_Example {
 
 }
 ----------------------------------------------------------------------------------------------------------------------
-  // 2
+  // 2 - 문제
+package 인터페이스;
+
+import java.util.Scanner;
+
+abstract class Converter {
+	 abstract protected double convert(double src); // 추상 메소드
+	   abstract protected String getSrcString(); // 추상 메소드
+	   abstract protected String getDestString(); // 추상 메소드
+	   protected double ratio; // 비율
+	   
+	   public void run() {
+	      Scanner scanner = new Scanner(System.in);
+	      System.out.println(getSrcString()+"을 "+getDestString()+"로 바꿉니다.");
+	      System.out.print(getSrcString()+"을 입력하세요>> ");
+	      double val = scanner.nextDouble();
+	      double res = convert(val);
+	      System.out.println("변환 결과: "+res+getDestString()+"입니다");
+		      scanner.close();
+		      
+	   }
+}
+----------------------------------------------------------------------------------------------------------------------
+// 2-1 Won2Dollar (2번)
+package 인터페이스;
+
+public class Won2Dollar  extends Converter {
+
+	int money;
+	
+	public Won2Dollar(int money) {
+		this.money = money;
+	}
+
+	@Override
+	protected double convert(double src) {
+		return src/money;
+	}
+
+	@Override
+	protected String getSrcString() {
+		return "원";
+	}
+
+	@Override
+	protected String getDestString() {
+		return "달러";
+	}
+}
+----------------------------------------------------------------------------------------------------------------------
+// 2-2 실행
+package 인터페이스;
+
+public class Converter_Example {
+
+	public static void main(String[] args) {
+		Won2Dollar toDollar = new Won2Dollar(1200);
+		 toDollar.run();	
+		 
+		 //출력결과
+		 //원을 달러로 바꿉니다.
+		 //원을 입력하세요>> 24000
+		 //변환 결과: 20.0달러입니다
+
+	}
+}
+----------------------------------------------------------------------------------------------------------------------
+// 2-3 Km2Mile (3번)
+package 인터페이스;
+
+public class Km2Mile extends Converter {
+
+	double distance;
+	
+	public Km2Mile(double distance) {
+		this.distance= distance;
+	}
+
+	@Override
+	protected double convert(double src) {
+		return src/distance;
+	}
+
+	@Override
+	protected String getSrcString() {
+		return "Km";
+	}
+
+	@Override
+	protected String getDestString() {
+		return "mile";
+	}
+}
+----------------------------------------------------------------------------------------------------------------------
+// 2-4 실행
+package 인터페이스;
+
+public class Converter_Example2 {
+
+	public static void main(String[] args) {
+		 Km2Mile toMile = new Km2Mile(1.6); // 1마일은 1.6km
+		   toMile.run();
+		   
+		   //출력결과
+		   //Km을 mile로 바꿉니다.
+		   //Km을 입력하세요>> 30
+		   //변환 결과: 18.75mile입니다
+
+	}
+}
+----------------------------------------------------------------------------------------------------------------------
