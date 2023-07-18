@@ -78,5 +78,43 @@ public class PhoneBook {
 	}
 
 }
--------------------------------------------------------
-  //2 
+----------------------------------------------------------------------------------------------------------------------
+// 2  중첩 클래스
+package _0718;
+
+public class A {
+	//Field
+	int field;
+	B field2;
+	//Constructor
+	A () {
+		B b = new B();
+		b.methodB();   // 생성자 안에서 B 사용 가능
+	}
+	//Method
+	//Nested Class
+	public class B {
+		//Field
+		//Constructor
+		//Method
+		public void methodB() {
+			System.out.println("methodB() 실행");
+		}
+	}
+}
+----------------------------------------------------------------------------------------------------------------------
+// 2-1
+package _0718;
+
+public class AExample {
+
+	public static void main(String[] args) {
+		
+		A a = new A();
+		//a.field = 10;
+		//A.B b = a.new B();
+		//b.methodB();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------
