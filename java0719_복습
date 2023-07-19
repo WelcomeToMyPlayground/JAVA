@@ -1,0 +1,97 @@
+//1 
+바깥 클래스의 멤버 접근 제한
+package _0720;
+
+public class A {
+	// A의 인스턴스 필드와 메소드
+	int field1;
+
+	void method1() {
+
+	}
+
+	// A의 정적 필드와 메소드
+	static int field2;
+
+	static void method2() {
+
+	}
+
+	// 인스턴스 멤버 클래스
+	class B {
+		void method() {
+			// A의 인스턴스 필드와 메소드 사용
+			field1 = 10;
+			method1();
+			// A의 정적 필드와 메소드 사용(일반 -> static (O))
+			field2 = 10;
+			method2();
+		}
+	}
+
+	// 정적 멤버 클래스
+	static class C {
+		void method() {
+			// A의 정적 필드와 메소드 사용 (static -> static 가능)
+			field2 = 10;
+			method2();
+			
+			// A의 인스턴스 필드와 메소드 사용 불가 (static -> 일반(인스턴스) x)
+			//field1 = 10;   에러
+			//method1();    에러 
+		}
+	}
+}
+-------------------------------------------------------------------------------------------------------------
+//2
+- 만약 중첩 클래스 내부에서 바깥 클래스의 객체를 얻으려면, 바깥 클래스 이름에 this를 붙여주면 된다
+- 바깥클래스이름.this -> 바깥 객체
+  
+package _0720;
+public class A1 {
+	
+	String field="A-field";  // A1 인스턴스 필드
+	void method() {			  // A1 인스턴스 메소드
+		System.out.println("A-method");
+	}
+	
+	class B {		// 인스턴스 멤버 클래스
+		
+		String field="B-field";   // B 인스턴스 필드		
+		void method() {  // B 인스턴스 메소드
+			System.out.println("B-method");
+		}
+		void print() {  // B 인스턴스 메소드
+			System.out.println(this.field);   // B 객체의 필드와 메소드 사용
+			this.method();
+			
+			System.out.println(A1.this.field);  // A1 객체의 필드와 메소드 사용
+			A1.this.method();			
+		}		
+	}
+	
+	// A1의 인스턴스 메소드
+	void useB() {
+		B b = new B();
+		b.print();
+	}	
+}
+-------------------------------------------------------------------------------------------------------------
+// 2-1
+  package _0720;
+
+public class A1_Example {
+
+	public static void main(String[] args) {
+		
+		A1 a = new A1();  // A1 객체 생성
+		a.useB();   			   // A1 메소드 호출
+		
+		// 출력결과
+		//B-field
+		//B-method
+		//A-field
+		//A-method
+	}
+}
+-------------------------------------------------------------------------------------------------------------
