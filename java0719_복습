@@ -95,3 +95,60 @@ public class A1_Example {
 	}
 }
 -------------------------------------------------------------------------------------------------------------
+중첩 인터페이스
+// 3
+package _0720;
+
+public class Button {
+	
+	public static interface ClickListener {   // 정적 중첩 인터페이스 선언
+		void onClick();  // 추상 메소드
+	}
+	
+	private ClickListener clickListener;  // 필드
+	
+	public void setClickListener(ClickListener clickListener) {  // 메소드
+		this.clickListener = clickListener;
+	}
+	
+	public void click() {	// Button이 클릭되었을 때 실행하는 메소드 선언
+		this.clickListener.onClick();    
+	}
+}
+-------------------------------------------------------------------------------------------------------------
+// 3-1 ?
+package _0720;
+
+public class ButtonExample {
+
+	public static void main(String[] args) {
+		
+		Button btnOk = new Button();   // OK 버튼 객체 생성
+		
+		class OkListener implements Button.ClickListener {
+
+			@Override
+			public void onClick() {
+				System.out.println("OK 버튼을 클릭했습니다.");			
+			}	
+		}
+		btnOk.setClickListener(new OkListener());
+		btnOk.click();
+		
+		Button btnCancel = new Button();
+		class CancelListener implements Button.ClickListener {
+
+			@Override
+			public void onClick() {
+				System.out.println("Cancel 버튼을 클릭했습니다.");		
+			}
+		}
+		btnCancel.setClickListener(new CancelListener());
+		btnCancel.click();
+		
+		// 출력결과
+		// OK 버튼을 클릭했습니다.
+		// Cancel 버튼을 클릭했습니다.
+	}
+}
+-------------------------------------------------------------------------------------------------------------
