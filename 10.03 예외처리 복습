@@ -1,0 +1,52 @@
+package exceptionclass;
+
+public class ExceptionClass {
+
+		public void ex_1() {
+			System.out.println("[예외 처리를 하지 않는 경우]");
+			int a = 10;
+			int b = 0;
+			
+			int result = a/b ; // 예외 발생 시 비정상 종료됨 (0으로 나누는 경우)
+			System.out.println(result);
+		};
+  
+		public void ex_2() {
+			System.out.println("[예외 처리를 하는 경우]");
+			int a = 10;
+			int b = 0;
+			
+			try {
+				int result = a / b;
+				System.out.println(result);
+			} catch (ArithmeticException  ae) {
+				ae.printStackTrace();
+				System.out.println("예외 원인 : " + ae.getMessage());
+			}
+		};
+  
+		public void ex_3() throws ArithmeticException{
+			System.out.println("[예외 처리를 던지는 경우]");
+			int a = 10;
+			int b = 0;
+			int result = a / b;
+			System.out.println(result);			
+		};
+		
+	public static void main(String[] args) {
+		
+		ExceptionClass ec = new ExceptionClass();  // ExceptionClass 객체 생성
+		
+		ec.ex_1();   // ex_1 실행
+		ec.ex_2();	 // ex_2 실행
+		
+		try {
+			ec.ex_3(); // ex_3를 호출하는 곳에서 try catch를 해야함
+		}
+		catch (ArithmeticException ae) {
+			ae.printStackTrace();
+			System.out.println("예외 원인 : " + ae.getMessage());
+		}
+
+	}
+}
